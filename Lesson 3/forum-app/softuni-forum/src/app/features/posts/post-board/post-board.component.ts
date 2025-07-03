@@ -1,11 +1,10 @@
 import { Component } from '@angular/core';
+import { SinglePost } from '../single-post/single-post.component';
 
 @Component({
   selector: 'app-post-board',
-  imports: [],
+  imports: [SinglePost],
   templateUrl: './post-board.html',
-  styleUrl: './post-board.css'
+  styleUrl: './post-board.css',
 })
-export class PostBoard {
-
-}
+export class PostBoard {}
