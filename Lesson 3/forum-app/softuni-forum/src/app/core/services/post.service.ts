@@ -4,6 +4,6 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class PostService {
-  private apiUrl = 'https://localhost:3000/api/posts?limit=5';
+  private apiUrl = 'http://localhost:3000/api/posts?limit=5';
   constructor() {}
 }
