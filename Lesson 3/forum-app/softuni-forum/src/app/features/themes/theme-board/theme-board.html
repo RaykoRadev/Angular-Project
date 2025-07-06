@@ -1,3 +1,5 @@
-<div class="theme-title">
-  <app-single-theme></app-single-theme>
+<div *ngIf="themes$ | async as themes" class="theme-title">
+  @for(th of themes; track th._id){
+  <app-single-theme [theme]="th"></app-single-theme>
+  }
 </div>

@@ -4,7 +4,6 @@ import { Header } from './shared/header/header.component';
 import { Footer } from './shared/footer/footer.component';
 import { ThemeBoard } from './features/themes/theme-board/theme-board.component';
 import { PostBoard } from './features/posts/post-board/post-board.component';
-import { PostService } from './core/services/post.service';
 
 @Component({
   selector: 'app-root',

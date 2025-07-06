@@ -1,3 +1,4 @@
+import { ThemeInt } from './theme-interface';
 import { UserId } from './user-interface';
 
 export interface PostInt {
@@ -5,6 +6,6 @@ export interface PostInt {
   id: string;
   text: string;
   userId: UserId;
-  themeId: string;
+  themeId: ThemeInt;
   created_at: Date;
 }

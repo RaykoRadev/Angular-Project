@@ -7,11 +7,10 @@ import { ThemeInt } from '../../shared/interfaces/theme-interface';
   providedIn: 'root',
 })
 export class ThemeService {
-  private apiUrl = 'http ://localhost:3000/api/themes';
+  private apiUrl = 'http://localhost:3000/api/themes';
   constructor(private httpClient: HttpClient) {}
 
   getThemes(): Observable<ThemeInt[]> {
-    console.log('УРЛ', this.apiUrl);
     return this.httpClient.get<ThemeInt[]>(this.apiUrl);
   }
 }

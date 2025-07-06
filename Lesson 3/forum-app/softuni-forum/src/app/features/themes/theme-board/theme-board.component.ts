@@ -1,12 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { SingleTheme } from '../single-theme/single-theme.component';
 import { ThemeService } from '../../../core/services/theme.service';
 import { ThemeInt } from '../../../shared/interfaces/theme-interface';
-import { Observable } from 'rxjs';
+import { firstValueFrom, Observable } from 'rxjs';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-theme-board',
-  imports: [SingleTheme],
+  imports: [SingleTheme, CommonModule],
   templateUrl: './theme-board.html',
   styleUrl: './theme-board.css',
 })

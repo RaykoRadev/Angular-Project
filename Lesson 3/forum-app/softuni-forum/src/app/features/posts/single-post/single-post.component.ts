@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { PostInt } from '../../../shared/interfaces/post-interface';
 
 @Component({
   selector: 'app-single-post',
@@ -6,4 +7,6 @@ import { Component } from '@angular/core';
   templateUrl: './single-post.html',
   styleUrl: './single-post.css',
 })
-export class SinglePost {}
+export class SinglePost {
+  @Input() post!: PostInt;
+}
