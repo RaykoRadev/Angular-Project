@@ -1,6 +1,6 @@
 /out
 .vscode
 /node_modules
-/project
+/project/express-server-main
 /Lesson 3/forum-app/Rest-api
 /Lesson 3/forum-app/views
