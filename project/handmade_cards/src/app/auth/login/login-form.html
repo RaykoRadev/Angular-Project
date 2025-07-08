@@ -1,0 +1,18 @@
+<div class="container">
+  <h5>Login</h5>
+
+  <form [formGroup]="registerForm" (ngSubmit)="handlerSubmit()">
+    <div class="form-group">
+      <label for="email">Имейл</label>
+      <input type="text" id="email" name="email" />
+    </div>
+
+    <div class="form-group">
+      <label for="password">Парола</label>
+      <input type="password" id="password" name="password" />
+    </div>
+
+    <button>Впиши се</button>
+    <i>Нямаш регистрация <a href="register">Регистрирай се</a></i>
+  </form>
+</div>

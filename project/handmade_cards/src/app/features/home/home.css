@@ -1,0 +1,35 @@
+.container{
+  display: flex;
+  gap: 2em;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  padding: 2.5em;
+  background-color: transparent;
+}
+
+section {
+  border-radius: 1em;
+
+  img{
+    /* border-radius: 1em; */
+    overflow: hidden;
+    width: 450px;
+    height: 645px;
+    border-top-left-radius: 1em;
+    border-top-right-radius: 1em;
+  }
+
+  .text{
+    padding: 1em;
+    border: 1px solid var(--button-color);
+    border-top: none;
+    border-bottom-left-radius: 1em;
+    border-bottom-right-radius: 1em;
+
+
+    p{
+      font-size: 1.2em;
+    }
+  }
+}

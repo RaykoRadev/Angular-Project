@@ -1,0 +1,12 @@
+body {
+    background-color: var(--background);
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    background-color: #fff;
+}

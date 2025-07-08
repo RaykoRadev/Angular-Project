@@ -1,0 +1,80 @@
+aside {
+  border-radius: 1em;
+  /* background-color: yellow; */
+  background-color: #f4d44d;
+
+}
+
+aside>p {
+  font-size: 2em;
+  font-weight: 600;
+  text-align: center;
+}
+
+aside .accordion {
+  display: flex;
+  flex-direction: column;
+}
+
+.accordion input[type="radio"] {
+  display: none;
+}
+
+.accordion label:hover {
+  background-color: var(--button-color-hoover);
+  color: black;
+}
+
+.accordion label > a:hover{
+  background-color: #f4d44d;
+  color: black;
+}
+
+.accordion label {
+  display: block;
+  background: var(--button-color);
+  color: white;
+  padding: 0.2em;
+  cursor: pointer;
+  border-top: 1px solid var(--button-color);
+}
+
+.accordion label:last-child{
+  border-bottom-left-radius: 1em;
+  border-bottom-right-radius: 1em;
+}
+
+.accordion .content p:hover {
+  background-color: var(--button-color-hoover);
+  color: black;
+}
+
+
+.accordion .content {
+  max-height: 0;
+  overflow: hidden;
+  background-color: var(--search-input-color);
+  /* color: black; */
+  transition: max-height 0.3s ease;
+  padding: 0 1em;
+}
+
+
+.accordion .content p {
+  border-bottom: 1px solid black;
+}
+
+.accordion  a {
+  text-decoration: none;
+  color: white;
+}
+
+.accordion input[type="radio"]:checked+label+.content {
+  max-height: 15em;
+  /* adjust based on your content */
+  padding: 0.8em;
+}
+
+.main-container aside {
+  width: 30%;
+}

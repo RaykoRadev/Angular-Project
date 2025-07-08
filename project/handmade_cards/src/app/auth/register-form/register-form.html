@@ -1,0 +1,28 @@
+<div class="container">
+  <h5>Регистрация</h5>
+
+  <form [formGroup]="registerForm" (ngSubmit)="handlerSubmit()">
+    <div class="form-group">
+      <label for="username">Потребителско име</label>
+      <input type="text" id="username" name="username" />
+    </div>
+
+    <div class="form-group">
+      <label for="email">Имейл</label>
+      <input type="text" id="email" name="email" />
+    </div>
+
+    <div class="form-group">
+      <label for="password">Парола</label>
+      <input type="password" id="password" name="password" />
+    </div>
+
+    <div class="form-group">
+      <label for="re-password">Повтори парола</label>
+      <input type="re-password" id="re-password" name="re-password" />
+    </div>
+
+    <button>Регистрация</button>
+    <i>Ако вече имате регистрация <a href="login">Вход</a></i>
+  </form>
+</div>

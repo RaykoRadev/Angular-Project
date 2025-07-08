@@ -1,0 +1,12 @@
+footer {
+  display: flex;
+  width: 100dvw;
+  flex-direction: column;
+  text-align: center;
+  background-color: rgb(189, 189, 189);
+}
+
+footer .creators {
+  display: flex;
+  justify-content: space-around;
+}
