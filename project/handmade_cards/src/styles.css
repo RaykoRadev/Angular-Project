@@ -1,0 +1,17 @@
+/** base reseting files */
+
+@import url(../public/styles/reset.css);
+@import url(../public/styles/typography.css);
+@import url(../public/styles/layout.css);
+@import url(../src/app/shared/cosntants/variables.css);
+
+/** main files */
+
+
+
+
+/** links */
+
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css');
+
+
