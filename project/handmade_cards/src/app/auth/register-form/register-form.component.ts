@@ -37,7 +37,7 @@ export class RegisterForm {
       // console.log(this.registerForm.value);
 
       const formData: UserReg = this.registerForm.value as UserReg;
-      console.log(formData);
+      // console.log(formData);
 
       this.service.register(formData);
       this.registerForm.reset();

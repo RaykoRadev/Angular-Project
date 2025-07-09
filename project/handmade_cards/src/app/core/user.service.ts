@@ -18,10 +18,10 @@ export class UserService {
 
     this.http.post<object>(url, data).subscribe({
       next: (res: any) => {
-        console.log('reg succsesfull', res);
+        // console.log('reg succsesfull', res);
 
         this.userReg = res as UserReg;
-        console.log(this.userReg);
+        // console.log(this.userReg);
 
         localStorage.setItem(this.USER_TOKEN, JSON.stringify(this.userReg));
         return res;
