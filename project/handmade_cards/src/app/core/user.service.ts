@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { BASE_USER_URL } from '../shared/cosntants/constants';
 import { HttpClient } from '@angular/common/http';
 import { UserAuth, UserReg } from '../shared/cosntants/interfaces';
+import { Observable, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -13,22 +14,15 @@ export class UserService {
 
   constructor(private http: HttpClient) {}
 
-  register(data: UserReg): UserReg {
+  register(data: UserReg): Observable<UserReg> {
     const url = BASE_USER_URL + '/register';
 
-    this.http.post<object>(url, data).subscribe({
-      next: (res: any) => {
-        // console.log('reg succsesfull', res);
-
-        this.userReg = res as UserReg;
-        // console.log(this.userReg);
-
-        localStorage.setItem(this.USER_TOKEN, JSON.stringify(this.userReg));
-        return res;
-      },
-    });
-
-    return data;
+    return this.http.post<UserReg>(url, data).pipe(
+      tap((res) => {
+        this.userReg = res;
+        localStorage.setItem(this.USER_TOKEN, JSON.stringify(res));
+      })
+    );
   }
 
   login() {

@@ -34,12 +34,9 @@ export class RegisterForm {
 
   handlerSubmit() {
     if (this.registerForm.valid) {
-      // console.log(this.registerForm.value);
-
       const formData: UserReg = this.registerForm.value as UserReg;
-      // console.log(formData);
 
-      this.service.register(formData);
+      this.service.register(formData).subscribe();
       this.registerForm.reset();
     } else {
       console.warn('Form is invalid');
