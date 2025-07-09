@@ -5,12 +5,12 @@ export interface UserReg {
   repass: string;
 }
 
-export interface UserAuth {
+export interface UserLog {
   email: string;
   password: string;
 }
 
-export interface ServerResponce {
+export interface ServRespUserData {
   email: string;
   role: string;
   token: string;

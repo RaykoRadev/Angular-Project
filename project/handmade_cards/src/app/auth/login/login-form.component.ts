@@ -6,33 +6,32 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+import { UserService } from '../../core/user.service';
+import { UserLog } from '../../shared/utils/interfaces';
 
 @Component({
   selector: 'app-login-form',
   imports: [ReactiveFormsModule],
   templateUrl: './login-form.html',
   styleUrl: './login-form.css',
+  providers: [UserService],
 })
 export class LoginForm {
   loginForm = new FormGroup({
-    email: new FormControl('', [Validators.required, Validators.email]),
-    password: new FormControl('', [
-      Validators.required,
-      Validators.minLength(6),
-    ]),
+    username: new FormControl('', [Validators.required]),
+    password: new FormControl('', [Validators.required]),
   });
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private service: UserService) {}
 
   handlerSubmit() {
-    // if (this.registerForm.invalid) {
-    //   console.log('Form is invalid: ', this.registerForm.invalid);
+    if (this.loginForm.valid) {
+      const formData: UserLog = this.loginForm.value as UserLog;
 
-    //   return;
-    // }
-
-    console.log(this.loginForm.value);
-
-    this.loginForm.reset();
+      this.service.login(formData).subscribe();
+      this.loginForm.reset();
+    } else {
+      console.warn('Form is invalid');
+    }
   }
 }

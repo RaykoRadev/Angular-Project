@@ -1,40 +1,65 @@
 import { Injectable } from '@angular/core';
 import { BASE_USER_URL } from '../shared/cosntants/constants';
 import { HttpClient } from '@angular/common/http';
-import { UserAuth, UserReg } from '../shared/cosntants/interfaces';
-import { Observable, tap } from 'rxjs';
+import { ServRespUserData, UserLog, UserReg } from '../shared/utils/interfaces';
+import { BehaviorSubject, catchError, Observable, tap, throwError } from 'rxjs';
+import {
+  clearUserData,
+  getUserData,
+  setUserData,
+} from '../shared/utils/userData';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserService {
   USER_TOKEN = 'userToken';
-  user: UserAuth | null = null;
-  userReg: UserReg | null = null;
+
+  private isLogged = new BehaviorSubject<boolean>(!!getUserData());
+
+  private onAuthSuccsess(res: ServRespUserData, isLogged: boolean) {
+    isLogged ? setUserData(res) : clearUserData();
+    this.setLoggedIn(isLogged);
+  }
 
   constructor(private http: HttpClient) {}
 
-  register(data: UserReg): Observable<UserReg> {
+  setLoggedIn(val: boolean): void {
+    this.isLogged.next(val);
+  }
+
+  register(data: UserReg): Observable<ServRespUserData> {
     const url = BASE_USER_URL + '/register';
 
-    return this.http.post<UserReg>(url, data).pipe(
+    return this.http.post<ServRespUserData>(url, data).pipe(
       tap((res) => {
-        this.userReg = res;
-        localStorage.setItem(this.USER_TOKEN, JSON.stringify(res));
+        this.onAuthSuccsess(res, true);
+      }),
+      catchError((err) => {
+        return throwError(() => err);
       })
     );
   }
 
-  login() {
-    //todo send request to the server
-    if (!this.user) {
-      throw new Error('missing auth token');
-    }
-    localStorage.setItem(this.USER_TOKEN, JSON.stringify(this.user));
+  login(data: UserLog): Observable<ServRespUserData> {
+    const url = BASE_USER_URL + '/login';
+
+    return this.http.post<ServRespUserData>(url, data).pipe(
+      tap((res) => {
+        this.onAuthSuccsess(res, true);
+      }),
+      catchError((err) => {
+        return throwError(() => err);
+      })
+    );
   }
 
-  logout() {
-    //todo send request to the server
-    localStorage.removeItem(this.USER_TOKEN);
+  logout(): Observable<ServRespUserData> {
+    const url = BASE_USER_URL + '/logout';
+    return this.http.post<ServRespUserData>(url).pipe(
+      tap((res) => {
+        this.onAuthSuccsess(res, false);
+      })
+    );
   }
 }

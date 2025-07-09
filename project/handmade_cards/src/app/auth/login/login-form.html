@@ -1,15 +1,15 @@
 <div class="container">
-  <h5>Login</h5>
+  <h5>Впиши се</h5>
 
   <form [formGroup]="loginForm" (ngSubmit)="handlerSubmit()">
     <div class="form-group">
-      <label for="email">Имейл</label>
-      <input type="text" id="email" name="email" />
+      <label for="username">Потребителско име</label>
+      <input type="text" id="username" formControlName="username" />
     </div>
 
     <div class="form-group">
       <label for="password">Парола</label>
-      <input type="password" id="password" name="password" />
+      <input type="password" id="password" formControlName="password" />
     </div>
 
     <button type="submit">Впиши се</button>

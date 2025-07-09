@@ -7,7 +7,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { UserService } from '../../core/user.service';
-import { UserReg } from '../../shared/cosntants/interfaces';
+import { UserReg } from '../../shared/utils/interfaces';
 
 @Component({
   selector: 'app-register-form',
