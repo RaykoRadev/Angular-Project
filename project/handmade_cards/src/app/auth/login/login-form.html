@@ -1,7 +1,7 @@
 <div class="container">
   <h5>Login</h5>
 
-  <form [formGroup]="registerForm" (ngSubmit)="handlerSubmit()">
+  <form [formGroup]="loginForm" (ngSubmit)="handlerSubmit()">
     <div class="form-group">
       <label for="email">Имейл</label>
       <input type="text" id="email" name="email" />
@@ -12,7 +12,7 @@
       <input type="password" id="password" name="password" />
     </div>
 
-    <button>Впиши се</button>
+    <button type="submit">Впиши се</button>
     <i>Нямаш регистрация <a href="register">Регистрирай се</a></i>
   </form>
 </div>

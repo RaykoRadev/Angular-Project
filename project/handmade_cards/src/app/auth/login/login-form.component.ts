@@ -6,17 +6,15 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { User } from '../../core/services/user.service';
 
 @Component({
   selector: 'app-login-form',
   imports: [ReactiveFormsModule],
   templateUrl: './login-form.html',
   styleUrl: './login-form.css',
-  providers: [User],
 })
 export class LoginForm {
-  registerForm = new FormGroup({
+  loginForm = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [
       Validators.required,
@@ -33,8 +31,8 @@ export class LoginForm {
     //   return;
     // }
 
-    console.log(this.registerForm.value);
+    console.log(this.loginForm.value);
 
-    this.registerForm.reset();
+    this.loginForm.reset();
   }
 }

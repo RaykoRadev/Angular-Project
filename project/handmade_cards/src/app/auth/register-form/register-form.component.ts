@@ -3,30 +3,46 @@ import {
   FormBuilder,
   FormGroup,
   ReactiveFormsModule,
+  FormControl,
   Validators,
 } from '@angular/forms';
+import { UserService } from '../../core/user.service';
+import { UserReg } from '../../shared/cosntants/interfaces';
 
 @Component({
   selector: 'app-register-form',
   imports: [ReactiveFormsModule],
   templateUrl: './register-form.html',
   styleUrl: './register-form.css',
+  providers: [UserService],
 })
 export class RegisterForm {
   registerForm = new FormGroup({
-    email: new FormGroup('', [Validators.required, Validators.email]),
-    password: new FormGroup('', [Validators.required, Validators.minLength(6)]),
-    're-password': new FormGroup('', [
+    email: new FormControl('', [Validators.required, Validators.email]),
+    username: new FormControl('', [
+      Validators.required,
+      Validators.minLength(3),
+    ]),
+    password: new FormControl('', [
       Validators.required,
       Validators.minLength(6),
     ]),
+    repass: new FormControl('', [Validators.required, Validators.minLength(6)]),
   });
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private service: UserService) {}
 
   handlerSubmit() {
-    console.log(this.registerForm.value);
+    if (this.registerForm.valid) {
+      // console.log(this.registerForm.value);
 
-    this.registerForm.reset();
+      const formData: UserReg = this.registerForm.value as UserReg;
+      console.log(formData);
+
+      this.service.register(formData);
+      this.registerForm.reset();
+    } else {
+      console.warn('Form is invalid');
+    }
   }
 }
