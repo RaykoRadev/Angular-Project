@@ -8,6 +8,7 @@ import {
 } from '@angular/forms';
 import { UserService } from '../../core/user.service';
 import { UserReg } from '../../shared/utils/interfaces';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-register-form',
@@ -30,7 +31,11 @@ export class RegisterForm {
     repass: new FormControl('', [Validators.required, Validators.minLength(6)]),
   });
 
-  constructor(private fb: FormBuilder, private service: UserService) {}
+  constructor(
+    private fb: FormBuilder,
+    private service: UserService,
+    private router: Router
+  ) {}
 
   handlerSubmit() {
     if (this.registerForm.valid) {
@@ -41,5 +46,6 @@ export class RegisterForm {
     } else {
       console.warn('Form is invalid');
     }
+    this.router.navigate(['/home']);
   }
 }

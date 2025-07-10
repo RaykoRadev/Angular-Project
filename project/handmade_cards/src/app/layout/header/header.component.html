@@ -7,9 +7,14 @@
     </section>
     <section class="user">
       <ul>
-        <li><a href="/login">Вход</a></li>
-        <li><a href="/register">Регистрирация</a></li>
-        <li><a href="#">Отписване :(</a></li>
+        <li>
+          <span>Добре дошъл {{ name }}</span>
+        </li>
+        <li *ngIf="guest()"><a routerLink="/login">Вход</a></li>
+        <li *ngIf="guest()"><a routerLink="/register">Регистрирация</a></li>
+        <li *ngIf="user()">
+          <a (click)="onLogout($event)" href="/logout">Отписване :(</a>
+        </li>
       </ul>
     </section>
   </div>
@@ -17,9 +22,9 @@
   <nav class="header-bottom">
     <section class="pages">
       <ul>
-        <li><a href="">Начало</a></li>
-        <li><a href="#">Каталог</a></li>
-        <li><a href="#">Свържи се с нас</a></li>
+        <li><a routerLink="/home">Начало / Каталог</a></li>
+        <li *ngIf="user()"><a routerLink="#">Създай нова картичка</a></li>
+        <li><a routerLink="#">Свържи се с нас</a></li>
       </ul>
     </section>
     <section class="social-search">

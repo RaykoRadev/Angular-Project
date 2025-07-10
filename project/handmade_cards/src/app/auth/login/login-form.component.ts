@@ -8,6 +8,7 @@ import {
 } from '@angular/forms';
 import { UserService } from '../../core/user.service';
 import { UserLog } from '../../shared/utils/interfaces';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-login-form',
@@ -22,7 +23,11 @@ export class LoginForm {
     password: new FormControl('', [Validators.required]),
   });
 
-  constructor(private fb: FormBuilder, private service: UserService) {}
+  constructor(
+    private fb: FormBuilder,
+    private service: UserService,
+    private router: Router
+  ) {}
 
   handlerSubmit() {
     if (this.loginForm.valid) {
@@ -33,5 +38,7 @@ export class LoginForm {
     } else {
       console.warn('Form is invalid');
     }
+
+    this.router.navigate(['/home']);
   }
 }
