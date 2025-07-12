@@ -35,3 +35,12 @@ button:hover {
   background-color: var(--button-color-hoover);
   color: black;
 }
+
+mat-error {
+  color: red;
+  font-size: 0.8em;
+}
+
+mat-form-field {
+  width: 400px;
+}

@@ -9,10 +9,12 @@ import {
 import { UserService } from '../../core/user.service';
 import { UserLog } from '../../shared/utils/interfaces';
 import { Router, RouterLink } from '@angular/router';
+import { MatError, MatFormField, MatLabel } from '@angular/material/form-field';
+import { MatInput } from '@angular/material/input';
 
 @Component({
   selector: 'app-login-form',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, MatFormField, MatError, MatInput, MatLabel],
   templateUrl: './login-form.html',
   styleUrl: './login-form.css',
   providers: [UserService],

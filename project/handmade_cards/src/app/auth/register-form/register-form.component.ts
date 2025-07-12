@@ -12,10 +12,21 @@ import { Router, RouterLink } from '@angular/router';
 import { DOMAINS } from '../../shared/cosntants/constants';
 import { EmailDirective } from '../../directives/email.directive';
 import { CommonModule } from '@angular/common';
+import { MatError, MatFormField, MatLabel } from '@angular/material/form-field';
+import { MatInput } from '@angular/material/input';
+import { matchPasswordsValidator } from '../../shared/utils/passwords.match.validator';
 
 @Component({
   selector: 'app-register-form',
-  imports: [ReactiveFormsModule, CommonModule],
+  imports: [
+    ReactiveFormsModule,
+    CommonModule,
+    MatFormField,
+    MatError,
+    MatInput,
+    MatLabel,
+    CommonModule,
+  ],
   templateUrl: './register-form.html',
   styleUrl: './register-form.css',
   providers: [UserService],
@@ -29,11 +40,21 @@ export class RegisterForm {
       Validators.required,
       Validators.minLength(3),
     ]),
-    password: new FormControl('', [
-      Validators.required,
-      Validators.minLength(6),
-    ]),
-    repass: new FormControl('', [Validators.required, Validators.minLength(6)]),
+    passGroup: new FormGroup(
+      {
+        password: new FormControl('', [
+          Validators.required,
+          Validators.minLength(6),
+        ]),
+        repass: new FormControl('', [
+          Validators.required,
+          Validators.minLength(6),
+        ]),
+      },
+      {
+        validators: matchPasswordsValidator('password', 'repass'),
+      }
+    ),
   });
 
   constructor(

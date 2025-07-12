@@ -2,17 +2,26 @@
   <h5>Впиши се</h5>
 
   <form [formGroup]="loginForm" (ngSubmit)="handlerSubmit()">
-    <div class="form-group">
-      <label for="username">Потребителско име</label>
-      <input type="text" id="username" formControlName="username" />
-    </div>
+    <mat-form-field class="form-group">
+      <mat-label for="username">Потребителско име</mat-label>
+      <input matInput type="text" id="username" formControlName="username" />
+      <mat-error
+        >Потребителското име трябва да съдеържа поне 3 символа!</mat-error
+      >
+    </mat-form-field>
 
-    <div class="form-group">
-      <label for="password">Парола</label>
-      <input type="password" id="password" formControlName="password" />
-    </div>
+    <mat-form-field class="form-group">
+      <mat-label for="password">Парола</mat-label>
+      <input
+        matInput
+        type="password"
+        id="password"
+        formControlName="password"
+      />
+      <mat-error>Паролата трябва да съдържа поне 6 символа!</mat-error>
+    </mat-form-field>
 
-    <button type="submit">Впиши се</button>
+    <button [disabled]="loginForm.invalid" type="submit">Впиши се</button>
     <i>Нямаш регистрация <a href="register">Регистрирай се</a></i>
   </form>
 </div>
