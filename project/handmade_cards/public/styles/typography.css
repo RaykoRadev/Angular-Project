@@ -1,4 +1,5 @@
 /* @link https://utopia.fyi/type/calculator?c=320,12,1.125,1280,16,1.2,6,0,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+@import url('https://fonts.googleapis.com/css2?family=Playpen+Sans:wght@100..800&display=swap');
 :root {
     --fs-body: clamp(0.75rem, 0.6667rem + 0.4167vw, 1rem);
 
@@ -13,7 +14,8 @@
 html {
     /* font-family: Georgia, Times, serif; */
     /* font-family: "Shantell Sans", cursive; */
-    font-family: "Caveat", cursive;
+    /* font-family: "Caveat", cursive; */
+    font-family: "Playpen Sans", cursive;
     font-size: clamp(15px, 11px + 0.25vw, 25px);
     line-height: 1.5;
 }
@@ -52,7 +54,7 @@ h5,
 h6 {
     margin-bottom: 0.4em;
     line-height: 1.1;
-    font-family: "Shantell Sans", cursive;
+    font-family: "Playpen Sans", cursive ;
 }
 
 :is(h1, h2, h3, h4, h5, h6):not(:first-child) {

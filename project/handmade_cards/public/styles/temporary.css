@@ -1,15 +1,6 @@
-body {
-    /* background-image: url(https://www.shutterstock.com/shutterstock/photos/2233867685/display_1500/stock-photo-violet-colored-freesia-bulb-flowers-in-spring-bloom-with-a-black-background-2233867685.jpg); */
-    /* background-image: url(https://images.pexels.com/photos/15872056/pexels-photo-15872056/free-photo-of-basket-with-colorful-flowers.jpeg); */
-    /* background-image: url(https://images.pexels.com/photos/19052979/pexels-photo-19052979/free-photo-of-woman-touching-flowers-in-garden.jpeg); */
-    background-image: url(https://sdmntprsouthcentralus.oaiusercontent.com/files/00000000-5868-61f7-bfd7-0aa957f8d0ee/raw?se=2025-05-31T14%3A45%3A50Z&sp=r&sv=2024-08-04&sr=b&scid=9314ca85-0a42-5d49-9571-774515f7e0d8&skoid=24a7dec3-38fc-4904-b888-8abe0855c442&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-05-31T11%3A59%3A07Z&ske=2025-06-01T11%3A59%3A07Z&sks=b&skv=2024-08-04&sig=Uel/IyflAnALMl5cuPhKOk0hCm/xwVK4hw%2Bp/wiSHAk%3D);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-}
-body > img {
-    z-index: -1;
-}
+
+
+
 body > .main-container {
     display: flex;
     padding: 2em 4em;

@@ -16,11 +16,11 @@ import { emailValidator } from '../shared/utils/emailValidator';
 })
 export class EmailDirective implements Validator {
   @Input() appEmail: string[] = [];
-
+  @Input() appEmailBase: string[] = [];
   constructor() {}
 
   validate(control: AbstractControl): ValidationErrors | null {
-    const validatorFn = emailValidator(this.appEmail);
+    const validatorFn = emailValidator(this.appEmail, this.appEmailBase);
     return validatorFn(control);
   }
 }

@@ -9,7 +9,7 @@ import {
 import { UserService } from '../../core/user.service';
 import { UserReg } from '../../shared/utils/interfaces';
 import { Router, RouterLink } from '@angular/router';
-import { DOMAINS } from '../../shared/cosntants/constants';
+import { DOMAINS, EMAIL_PROVIDERS } from '../../shared/cosntants/constants';
 import { EmailDirective } from '../../directives/email.directive';
 import { CommonModule } from '@angular/common';
 import { MatError, MatFormField, MatLabel } from '@angular/material/form-field';
@@ -33,6 +33,7 @@ import { matchPasswordsValidator } from '../../shared/utils/passwords.match.vali
 })
 export class RegisterForm {
   domains = DOMAINS;
+  emailBase = EMAIL_PROVIDERS;
 
   registerForm = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),

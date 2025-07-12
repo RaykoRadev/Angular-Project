@@ -1,14 +1,16 @@
 aside {
   border-radius: 1em;
-  /* background-color: yellow; */
   background-color: #f4d44d;
   margin-top: 0.8em;
+  width: 250px;
+  overflow: hidden;
 }
 
 aside>p {
-  font-size: 2em;
+  font-size: 1.5em;
   font-weight: 600;
   text-align: center;
+  padding: 0.4em 0.2em;
 }
 
 aside .accordion {
@@ -20,59 +22,92 @@ aside .accordion {
   display: none;
 }
 
+.accordion label {
+  padding: 0.5em 0.7em;
+  display: block;
+  background: var(--button-color);
+  color: white;
+  cursor: pointer;
+  border-top: 1px solid var(--button-color);
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  transition: background-color 0.3s ease, color 0.3s ease, border-radius 0.3s ease;
+}
+
+.accordion input[type="radio"]:not(:checked)+label.lastOne {
+  border-bottom-left-radius: 1em;
+  border-bottom-right-radius: 1em;
+}
+
+.accordion input[type="radio"]:checked+label {
+  background-color: var(--button-color-hoover);
+  color: black;
+  border-bottom: none;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+
+/* Hover for general labels */
 .accordion label:hover {
   background-color: var(--button-color-hoover);
   color: black;
 }
 
-.accordion label > a:hover{
+.accordion label>a:hover {
   background-color: #f4d44d;
   color: black;
 }
 
-.accordion label {
-  display: block;
-  background: var(--button-color);
+
+.accordion a {
+  text-decoration: none;
   color: white;
-  padding: 0.2em;
-  cursor: pointer;
-  border-top: 1px solid var(--button-color);
 }
 
-.accordion label:last-child{
+/* Content area */
+.accordion .content {
+  max-height: 0;
+  overflow: hidden;
+  background-color: var(--search-input-color);
+  transition: max-height 0.3s ease, padding 0.3s ease;
+  padding: 0 1em;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border-left: 1px solid var(--button-color);
+  border-right: 1px solid var(--button-color);
+  border-bottom: 1px solid var(--button-color);
+}
+
+.accordion .content:last-child {
   border-bottom-left-radius: 1em;
   border-bottom-right-radius: 1em;
+}
+
+
+.accordion input[type="radio"]:checked+label+.content {
+  max-height: 15em;
+  padding: 0.5em 0.8em;
+}
+
+.accordion input[type="radio"]:checked+label+.content:last-child {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.accordion .content p {
+  font-size: 0.9em;
+  border-bottom: 1px solid black;
+  padding: 0.3em 0;
+}
+
+.accordion .content p:last-child {
+  border-bottom: none;
 }
 
 .accordion .content p:hover {
   background-color: var(--button-color-hoover);
   color: black;
-}
-
-
-.accordion .content {
-  max-height: 0;
-  overflow: hidden;
-  background-color: var(--search-input-color);
-  /* color: black; */
-  transition: max-height 0.3s ease;
-  padding: 0 1em;
-}
-
-
-.accordion .content p {
-  border-bottom: 1px solid black;
-}
-
-.accordion  a {
-  text-decoration: none;
-  color: white;
-}
-
-.accordion input[type="radio"]:checked+label+.content {
-  max-height: 15em;
-  /* adjust based on your content */
-  padding: 0.8em;
 }
 
 .main-container aside {

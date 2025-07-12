@@ -16,7 +16,7 @@
   flex-direction: column;
   justify-content: center;
   /* padding: 0.5em; */
-  font-size: 1.4em;
+  font-size: 1.2em;
   margin-bottom: 1em;
 
 }
@@ -38,7 +38,7 @@ button:hover {
 
 mat-error {
   color: red;
-  font-size: 0.8em;
+  font-size: 0.6em;
 }
 
 mat-form-field {
