@@ -29,8 +29,8 @@ export class HeaderComponent implements OnChanges {
     this.router.navigate(['/home']);
   }
 
-  // guest = computed(() => !this.logUserData());
-  // user = computed(() => !!this.logUserData());
+  guest = computed(() => !this.logUserData());
+  user = computed(() => !!this.logUserData());
 
   name = this.logName ? this.logName.username : 'guest';
 

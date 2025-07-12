@@ -4,25 +4,40 @@
   <form [formGroup]="registerForm" (ngSubmit)="handlerSubmit()">
     <div class="form-group">
       <label for="username">Потребителско име</label>
-      <input type="text" id="username" formControlName="username" />
+      <input
+        class="error"
+        type="text"
+        id="username"
+        formControlName="username"
+      />
     </div>
 
     <div class="form-group">
       <label for="email">Имейл</label>
-      <input type="email" id="email" formControlName="email" />
+      <input class="error" type="email" id="email" formControlName="email" />
     </div>
 
     <div class="form-group">
       <label for="password">Парола</label>
-      <input type="password" id="password" formControlName="password" />
+      <input
+        class="error"
+        type="password"
+        id="password"
+        formControlName="password"
+      />
     </div>
 
     <div class="form-group">
       <label for="repass">Повтори парола</label>
-      <input type="password" id="repass" formControlName="repass" />
+      <input
+        class="error"
+        type="password"
+        id="repass"
+        formControlName="repass"
+      />
     </div>
 
-    <button type="submit">Регистрация</button>
+    <button [disabled]="registerForm.invalid" type="submit">Регистрация</button>
     <i>Ако вече имате регистрация <a href="login">Вход</a></i>
   </form>
 </div>
