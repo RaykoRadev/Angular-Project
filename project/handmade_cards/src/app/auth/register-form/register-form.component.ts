@@ -15,6 +15,8 @@ import { CommonModule } from '@angular/common';
 import { MatError, MatFormField, MatLabel } from '@angular/material/form-field';
 import { MatInput } from '@angular/material/input';
 import { matchPasswordsValidator } from '../../shared/utils/passwords.match.validator';
+import { AuthService } from '../../core/auth.service';
+import { subscribeOn } from 'rxjs';
 
 @Component({
   selector: 'app-register-form',
@@ -29,7 +31,7 @@ import { matchPasswordsValidator } from '../../shared/utils/passwords.match.vali
   ],
   templateUrl: './register-form.html',
   styleUrl: './register-form.css',
-  providers: [UserService],
+  // providers: [UserService],
 })
 export class RegisterForm {
   domains = DOMAINS;
@@ -61,18 +63,29 @@ export class RegisterForm {
   constructor(
     private fb: FormBuilder,
     private service: UserService,
-    private router: Router
+    private router: Router,
+    private authService: AuthService
   ) {}
 
   handlerSubmit() {
     if (this.registerForm.valid) {
       const formData: UserReg = this.registerForm.value as UserReg;
 
-      this.service.register(formData).subscribe();
-      this.registerForm.reset();
+      // this.service.register(formData).subscribe();
+      // this.registerForm.reset();
+
+      this.authService.register(formData).subscribe({
+        next: () => {
+          this.registerForm.reset();
+          this.router.navigate(['/home']);
+        },
+        error: (err) => {
+          console.error('Register failed', err);
+        },
+      });
     } else {
       console.warn('Form is invalid');
     }
-    this.router.navigate(['/home']);
+    // this.router.navigate(['/home']);
   }
 }

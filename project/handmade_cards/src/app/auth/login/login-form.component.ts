@@ -11,13 +11,14 @@ import { UserLog } from '../../shared/utils/interfaces';
 import { Router, RouterLink } from '@angular/router';
 import { MatError, MatFormField, MatLabel } from '@angular/material/form-field';
 import { MatInput } from '@angular/material/input';
+import { AuthService } from '../../core/auth.service';
 
 @Component({
   selector: 'app-login-form',
   imports: [ReactiveFormsModule, MatFormField, MatError, MatInput, MatLabel],
   templateUrl: './login-form.html',
   styleUrl: './login-form.css',
-  providers: [UserService],
+  // providers: [UserService],
 })
 export class LoginForm {
   loginForm = new FormGroup({
@@ -28,19 +29,30 @@ export class LoginForm {
   constructor(
     private fb: FormBuilder,
     private service: UserService,
-    private router: Router
+    private router: Router,
+    private authService: AuthService
   ) {}
 
   handlerSubmit() {
     if (this.loginForm.valid) {
       const formData: UserLog = this.loginForm.value as UserLog;
 
-      this.service.login(formData).subscribe();
-      this.loginForm.reset();
+      // this.service.login(formData).subscribe();
+      // this.loginForm.reset();
+
+      this.authService.login(formData).subscribe({
+        next: () => {
+          this.loginForm.reset();
+          this.router.navigate(['/home']);
+        },
+        error: (err) => {
+          console.error('login faild', err);
+        },
+      });
     } else {
       console.warn('Form is invalid');
     }
 
-    this.router.navigate(['/home']);
+    // this.router.navigate(['/home']);
   }
 }

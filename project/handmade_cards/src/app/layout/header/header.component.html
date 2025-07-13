@@ -7,14 +7,18 @@
     </section>
     <section class="user">
       <ul>
-        <li>
-          <span>Добре дошъл {{ name }}</span>
-        </li>
-        <li *ngIf="guest()"><a routerLink="/login">Вход</a></li>
-        <li *ngIf="guest()"><a routerLink="/register">Регистрирация</a></li>
-        <li *ngIf="user()">
-          <a (click)="onLogout($event)" href="/logout">Отписване :(</a>
-        </li>
+        <ng-container *ngIf="user; else loggedOut">
+          <li>
+            <span>Добре дошъл {{ name }}</span>
+          </li>
+          <li>
+            <a (click)="onLogout($event)" href="/logout">Отписване :(</a>
+          </li>
+        </ng-container>
+        <ng-template #loggedOut>
+          <li><a routerLink="/login">Вход</a></li>
+          <li><a routerLink="/register">Регистрирация</a></li>
+        </ng-template>
       </ul>
     </section>
   </div>
@@ -23,7 +27,7 @@
     <section class="pages">
       <ul>
         <li><a routerLink="/home">Начало / Каталог</a></li>
-        <li *ngIf="user()"><a routerLink="#">Създай нова картичка</a></li>
+        <li><a routerLink="#">Създай нова картичка</a></li>
         <li><a routerLink="#">Свържи се с нас</a></li>
       </ul>
     </section>

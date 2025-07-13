@@ -2,7 +2,7 @@ export interface UserReg {
   username: string;
   email: string;
   password: string;
-  repass: string;
+  // repass: string;
 }
 
 export interface UserLog {
