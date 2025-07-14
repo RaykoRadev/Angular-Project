@@ -6,20 +6,22 @@
       <p>Cards produced by the best card-maker -> my cousin</p>
     </section>
     <section class="user">
-      <ul>
-        <ng-container *ngIf="user; else loggedOut">
+      <ng-container *ngIf="user; else loggedOut">
+        <ul>
           <li>
             <span>Добре дошъл {{ name }}</span>
           </li>
           <li>
             <a (click)="onLogout($event)" href="/logout">Отписване :(</a>
           </li>
-        </ng-container>
-        <ng-template #loggedOut>
+        </ul>
+      </ng-container>
+      <ng-template #loggedOut>
+        <ul>
           <li><a routerLink="/login">Вход</a></li>
           <li><a routerLink="/register">Регистрирация</a></li>
-        </ng-template>
-      </ul>
+        </ul>
+      </ng-template>
     </section>
   </div>
 
@@ -27,7 +29,7 @@
     <section class="pages">
       <ul>
         <li><a routerLink="/home">Начало / Каталог</a></li>
-        <li><a routerLink="#">Създай нова картичка</a></li>
+        <li *ngIf="user"><a routerLink="#">Създай нова картичка</a></li>
         <li><a routerLink="#">Свържи се с нас</a></li>
       </ul>
     </section>
@@ -44,17 +46,23 @@
       <section class="social">
         <ul>
           <li>
-            <a href="#"><i class="fa-brands fa-square-facebook"></i></a>
+            <a
+              href="https://www.facebook.com/media/set/?set=a.10152527746599363&type=3&locale=bg_BG"
+              title="Go to FB"
+              ><i class="fa-brands fa-square-facebook"></i
+            ></a>
           </li>
           <li>
-            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://instagram.com" title="Go to Instagram"
+              ><i class="fa-brands fa-instagram"></i
+            ></a>
           </li>
-          <li style="display: none">
+          <!-- <li style="display: none">
             <a href="#"><i class="fa-solid fa-at"></i></a>
           </li>
           <li style="display: none">
             <a href="#"><i class="fa-solid fa-phone"></i></a>
-          </li>
+          </li> -->
         </ul>
       </section>
     </section>

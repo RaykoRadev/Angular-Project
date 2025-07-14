@@ -58,15 +58,15 @@
           placeholder=" "
           formControlName="repass"
         />
-        <!-- @if(registerForm.get('passGroup')?.get('repass')?.touched){
-        <div>
+
+        <!-- <div *ngIf="registerForm.get('passGroup')?.get('repass')?.touched">
           <mat-error
             *ngIf="
           registerForm.get('passGroup')?.hasError('passwordMismatch')"
             >Двете пароли трябва да съвпадат!</mat-error
           >
-        </div>
-        } -->
+        </div> -->
+
         @if(registerForm.get('passGroup')?.get('repass')?.touched){
         <div>
           @if(registerForm.get('passGroup')?.errors?.['passwordMismatch']){
