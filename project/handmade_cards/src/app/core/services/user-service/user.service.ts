@@ -1,18 +1,20 @@
 import { Injectable, signal } from '@angular/core';
-import { BASE_USER_URL } from '../shared/cosntants/constants';
 import { HttpClient } from '@angular/common/http';
-import { ServRespUserData, UserLog, UserReg } from '../shared/utils/interfaces';
 import { BehaviorSubject, catchError, Observable, tap, throwError } from 'rxjs';
 import {
-  clearUserData,
-  getUserData,
-  setUserData,
-} from '../shared/utils/userData';
+  ServRespUserData,
+  UserLog,
+  UserReg,
+} from '../../../shared/utils/interfaces';
+import { BASE_USER_URL } from '../../../shared/cosntants/constants';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserService {
+  static service(service: any): UserService {
+    throw new Error('Method not implemented.');
+  }
   USER_TOKEN = 'userToken';
 
   constructor(private http: HttpClient) {}

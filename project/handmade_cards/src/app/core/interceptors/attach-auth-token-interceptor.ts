@@ -10,10 +10,11 @@ import {
 } from '../../shared/utils/userData';
 import { catchError, tap } from 'rxjs';
 import { ServRespUserData } from '../../shared/utils/interfaces';
+import { IMAGE_UPLOAD } from '../../shared/cosntants/constants';
 
 export const attachAuthTokenInterceptor: HttpInterceptorFn = (req, next) => {
   const userData = getUserData();
-  if (userData) {
+  if (userData && !req.url.startsWith(IMAGE_UPLOAD)) {
     req = req.clone({
       setHeaders: {
         'x-authorization': userData.token,
@@ -27,6 +28,11 @@ export const attachAuthTokenInterceptor: HttpInterceptorFn = (req, next) => {
         (req.url.endsWith('login') || req.url.endsWith('register'))
       ) {
         setUserData(event.body as ServRespUserData);
+      } else if (
+        event instanceof HttpResponse &&
+        req.url.startsWith(IMAGE_UPLOAD)
+      ) {
+        console.log('upload continuing');
       }
     }),
 

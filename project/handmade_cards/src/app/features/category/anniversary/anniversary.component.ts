@@ -1,11 +1,10 @@
 import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-anniversary',
-  imports: [],
+  imports: [RouterOutlet],
   templateUrl: './anniversary.html',
-  styleUrl: './anniversary.css'
+  styleUrl: './anniversary.css',
 })
-export class Anniversary {
-
-}
+export class Anniversary {}

@@ -6,7 +6,6 @@ import {
   FormControl,
   Validators,
 } from '@angular/forms';
-import { UserService } from '../../core/user.service';
 import { UserReg } from '../../shared/utils/interfaces';
 import { Router } from '@angular/router';
 import { DOMAINS, EMAIL_PROVIDERS } from '../../shared/cosntants/constants';
@@ -15,7 +14,8 @@ import { CommonModule } from '@angular/common';
 import { MatError, MatFormField, MatLabel } from '@angular/material/form-field';
 import { MatInput } from '@angular/material/input';
 import { matchPasswordsValidator } from '../../shared/utils/passwords.match.validator';
-import { AuthService } from '../../core/auth.service';
+import { AuthService } from '../../core/services/auth-service/auth.service';
+import { UserService } from '../../core/services/user-service/user.service';
 
 @Component({
   selector: 'app-register-form',

@@ -1,12 +1,16 @@
 import { Injectable } from '@angular/core';
-import { ServRespUserData, UserLog, UserReg } from '../shared/utils/interfaces';
 import { BehaviorSubject, Observable, tap } from 'rxjs';
+import {
+  ServRespUserData,
+  UserLog,
+  UserReg,
+} from '../../../shared/utils/interfaces';
 import {
   clearUserData,
   getUserData,
   setUserData,
-} from '../shared/utils/userData';
-import { UserService } from './user.service';
+} from '../../../shared/utils/userData';
+import { UserService } from '../user-service/user.service';
 
 @Injectable({
   providedIn: 'root',

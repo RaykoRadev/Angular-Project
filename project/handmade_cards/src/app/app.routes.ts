@@ -8,6 +8,7 @@ import { Wedding } from './features/category/wedding/wedding.component';
 import { Baptism } from './features/category/baptism/baptism.component';
 import { Boxes } from './features/category/boxes/boxes.component';
 import { Babies } from './features/category/babies/babies.component';
+import { CreateCard } from './features/create-card/create-card.component';
 
 export const routes: Routes = [
   { path: 'home', component: Home },
@@ -21,6 +22,7 @@ export const routes: Routes = [
   { path: 'baptism', component: Baptism },
   { path: 'boxes', component: Boxes },
   { path: 'babies', component: Babies },
+  { path: 'create', component: CreateCard },
 
   //! always in the bottom
   { path: '**', redirectTo: '/home' },
