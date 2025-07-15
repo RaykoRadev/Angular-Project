@@ -1,8 +1,0 @@
-<div class="aside">
-  <h2 class="title">Recent posts</h2>
-  <div *ngIf="postArr$ | async as posts">
-    @for(post of posts; track post.id){
-    <app-single-post [post]="post"></app-single-post>
-    }
-  </div>
-</div>
