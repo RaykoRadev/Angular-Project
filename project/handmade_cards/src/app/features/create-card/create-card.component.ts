@@ -32,14 +32,15 @@ export class CreateCard {
   createCard = new FormGroup({
     title: new FormControl('', [Validators.required]),
     textarea: new FormControl(''),
-    // imgUrl: new FormControl('', [Validators.required]),
+    imageUrl: new FormControl('', [Validators.required]),
   });
 
   selectedFileName: string | null = null;
+  imageUrl: string | null = null;
 
   uploadPhoto(e: Event) {
     console.log(e.target);
-    let imgString = '';
+    // let imgString = '';
     const input = e.target as HTMLInputElement;
     if (input.files && input.files.length > 0) {
       const file = input.files[0];
@@ -50,14 +51,21 @@ export class CreateCard {
 
       const link = this.uploadService.uploadPhotoFn(file).subscribe({
         next: (url) => {
-          imgString = url;
+          this.imageUrl = url;
           console.log('url is: ', url);
         },
+
         error: (err) => {
           console.error('ImgBB upload faild', err);
         },
       });
     }
   }
-  handlerSubmit() {}
+
+  handlerSubmit() {
+    if (this.createCard.valid) {
+      const formData = this.createCard.value;
+      console.log('formdata is:', formData);
+    }
+  }
 }

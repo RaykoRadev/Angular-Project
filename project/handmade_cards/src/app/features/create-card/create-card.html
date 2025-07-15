@@ -20,19 +20,18 @@
     </mat-form-field>
 
     <!--* to check the image name in DB -->
-    <!-- <mat-form-field class="form-group">
-      <mat-label for="imgUrl">Снимка</mat-label>
-      <input type="file" id="imgUrl" formControlName="imgUrl" />
-      <mat-error>Моля не забравяйте да прикачите снимка!</mat-error>
-    </mat-form-field> -->
-
     <input type="file" #fileInput hidden (change)="uploadPhoto($event)" />
-    <button mat-raised-button color="primery" (click)="fileInput.click()">
+    <button
+      mat-raised-button
+      formControlName="imageUrl"
+      (click)="fileInput.click()"
+    >
       Избери снимка!
     </button>
     <span *ngIf="selectedFileName">{{selectedFileName}}</span>
 
-    <button [disabled]="createCard.invalid" type="submit">Впиши се</button>
-    <i>Нямаш регистрация <a href="register">Регистрирай се</a></i>
+    <button [disabled]="createCard.invalid" type="submit">
+      Създай картичка
+    </button>
   </form>
 </div>
