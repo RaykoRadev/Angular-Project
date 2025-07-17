@@ -1,5 +1,6 @@
 //* links
 export const BASE_USER_URL = 'http://localhost:3001/users';
+export const BASE_CARD_URL = 'http://localhost:3001/cards';
 export const IMAGE_UPLOAD = 'https://api.imgbb.com/1/upload?key=';
 
 //* tokens

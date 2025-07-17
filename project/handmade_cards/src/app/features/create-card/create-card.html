@@ -9,11 +9,11 @@
     </mat-form-field>
 
     <mat-form-field class="form-group">
-      <mat-label for="password">Описание</mat-label>
+      <mat-label for="description">Описание</mat-label>
       <textarea
         type="textarea"
-        formControlName="textarea"
-        id="textarea"
+        formControlName="description"
+        id="description"
         matInput
       ></textarea>
       <mat-error>Описанието трябва да съдържа поне 6 символа!</mat-error>
@@ -21,11 +21,7 @@
 
     <!--* to check the image name in DB -->
     <input type="file" #fileInput hidden (change)="uploadPhoto($event)" />
-    <button
-      mat-raised-button
-      formControlName="imageUrl"
-      (click)="fileInput.click()"
-    >
+    <button type="button" mat-raised-button (click)="fileInput.click()">
       Избери снимка!
     </button>
     <span *ngIf="selectedFileName">{{selectedFileName}}</span>

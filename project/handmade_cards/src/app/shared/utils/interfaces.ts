@@ -17,3 +17,20 @@ export interface ServRespUserData {
   username: string;
   _id: string;
 }
+export interface CardInt {
+  title: string;
+  description: string;
+  imageUrl: string;
+  author: string;
+}
+
+export interface CardResp {
+  title: string;
+  description: string;
+  imageUrl: string;
+  author: string;
+  likes: string[];
+  _id: string;
+  //   createdAt: string;
+  //   updatedAt: string;
+}
