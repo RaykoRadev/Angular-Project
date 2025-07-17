@@ -16,13 +16,27 @@ export const routes: Routes = [
   { path: 'login', component: LoginForm },
   { path: 'register', component: RegisterForm },
 
-  { path: 'anniversary', component: Anniversary },
+  // { path: 'anniversary', component: Anniversary },
+  {
+    path: 'anniversary',
+    loadComponent: () =>
+      import('./features/category/anniversary/anniversary.component').then(
+        (c) => c.Anniversary
+      ),
+  },
   { path: 'birthday', component: Birthday },
   { path: 'wedding', component: Wedding },
   { path: 'baptism', component: Baptism },
   { path: 'boxes', component: Boxes },
   { path: 'babies', component: Babies },
   { path: 'create', component: CreateCard },
+  {
+    path: 'me',
+    loadComponent: () =>
+      import('./auth/user-profile/user-profile.component').then(
+        (c) => c.UserProfileComponent
+      ),
+  },
 
   //! always in the bottom
   { path: '**', redirectTo: '/home' },

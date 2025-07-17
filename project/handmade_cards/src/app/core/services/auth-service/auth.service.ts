@@ -1,8 +1,9 @@
-import { Injectable } from '@angular/core';
+import { Injectable, signal } from '@angular/core';
 import { BehaviorSubject, Observable, tap } from 'rxjs';
 import {
   ServRespUserData,
   UserLog,
+  UserProf,
   UserReg,
 } from '../../../shared/utils/interfaces';
 import {
@@ -11,6 +12,7 @@ import {
   setUserData,
 } from '../../../shared/utils/userData';
 import { UserService } from '../user-service/user.service';
+import { UserProfileComponent } from '../../../auth/user-profile/user-profile.component';
 
 @Injectable({
   providedIn: 'root',
@@ -20,12 +22,17 @@ export class AuthService {
     getUserData()
   );
   currentUser$: Observable<ServRespUserData | null> = this.currentUserSubj;
+
+  private _isLoggedIn = signal<boolean>(false);
+  public isLoggedIn = this._isLoggedIn.asReadonly();
+
   constructor(private userService: UserService) {}
 
   login(data: UserLog) {
     return this.userService.login(data).pipe(
       tap((user) => {
         setUserData(user);
+        this._isLoggedIn.set(true);
         this.currentUserSubj.next(user);
       })
     );
@@ -35,6 +42,7 @@ export class AuthService {
     return this.userService.register(data).pipe(
       tap((user) => {
         setUserData(user);
+        this._isLoggedIn.set(true);
         this.currentUserSubj.next(user);
       })
     );
@@ -42,12 +50,7 @@ export class AuthService {
 
   logout() {
     clearUserData();
+    this._isLoggedIn.set(false);
     this.currentUserSubj.next(null);
-  }
-
-  getCurrentUser(): ServRespUserData | null {
-    console.log('let see:', this.currentUserSubj.value);
-
-    return this.currentUserSubj.value;
   }
 }

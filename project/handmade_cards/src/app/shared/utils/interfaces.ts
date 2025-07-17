@@ -17,6 +17,16 @@ export interface ServRespUserData {
   username: string;
   _id: string;
 }
+
+export interface UserProf {
+  _id: string;
+  username: string;
+  email: string;
+  role: string;
+  createdAt: string;
+  updatedAt: string;
+}
+
 export interface CardInt {
   title: string;
   description: string;

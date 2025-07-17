@@ -25,7 +25,9 @@ export const attachAuthTokenInterceptor: HttpInterceptorFn = (req, next) => {
     tap((event: HttpEvent<unknown>) => {
       if (
         event instanceof HttpResponse &&
-        (req.url.endsWith('login') || req.url.endsWith('register'))
+        (req.url.endsWith('login') ||
+          req.url.endsWith('register') ||
+          req.url.endsWith('me'))
       ) {
         setUserData(event.body as ServRespUserData);
       } else if (

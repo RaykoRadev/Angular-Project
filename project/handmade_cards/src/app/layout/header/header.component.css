@@ -93,7 +93,7 @@ header .header-bottom .social-search search form input::placeholder {
 }
 
 header .header-bottom .social-search search form button {
-  min-width: 9em;
+  min-width: 10em;
   border: none;
   border-top-right-radius: 0.4em;
   border-bottom-right-radius: 0.4em;

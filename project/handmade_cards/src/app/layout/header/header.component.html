@@ -12,6 +12,9 @@
             <span>Добре дошъл {{ name }}</span>
           </li>
           <li>
+            <a routerLink="/me">Profile</a>
+          </li>
+          <li>
             <a (click)="onLogout($event)" href="/logout">Отписване :(</a>
           </li>
         </ul>
@@ -34,15 +37,15 @@
       </ul>
     </section>
     <section class="social-search">
-      <search>
+      <!-- <search>
         <form action="#">
           <input type="text" name="search" placeholder="Какво ще търсим?" />
           <button type="submit">
             <i class="fa-solid fa-magnifying-glass"></i>
-            Да я намерим
+            Да го намерим
           </button>
         </form>
-      </search>
+      </search> -->
       <section class="social">
         <ul>
           <li>

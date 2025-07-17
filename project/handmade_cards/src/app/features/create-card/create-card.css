@@ -46,6 +46,8 @@ mat-form-field {
   width: 400px;
 }
 
+
+/* drop menu backgrounds */
 .mat-mdc-option.mdc-list-item{
   background-color: white;
 }
