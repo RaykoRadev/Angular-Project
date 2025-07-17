@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import {
   FormControl,
   FormGroup,
+  FormsModule,
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
@@ -16,6 +17,8 @@ import { UploadPhoto } from '../../core/services/uploadPhoto-service/uploadphoto
 import { getUserData } from '../../shared/utils/userData';
 import { CardInt } from '../../shared/utils/interfaces';
 import { CardService } from '../../core/services/card-service/card.service';
+import { MatOption } from '@angular/material/autocomplete';
+import { MatSelect } from '@angular/material/select';
 
 @Component({
   selector: 'app-create-card',
@@ -25,6 +28,9 @@ import { CardService } from '../../core/services/card-service/card.service';
     MatError,
     MatFormField,
     MatLabel,
+    MatOption,
+    MatSelect,
+    FormsModule,
     CommonModule,
   ],
   templateUrl: './create-card.html',
@@ -38,10 +44,19 @@ export class CreateCard {
   createCard = new FormGroup({
     title: new FormControl('', [Validators.required]),
     description: new FormControl(''),
+    category: new FormControl(null, Validators.required),
   });
 
   selectedFileName: string | null = null;
   imageUrl: string | null = null;
+  categoriesArr: string[] = [
+    'Рожден ден',
+    'Сватбени',
+    'Юбилейни',
+    'Бебешки',
+    'Кръщене',
+    'Кутии',
+  ];
 
   uploadPhoto(e: Event) {
     console.log(e.target);

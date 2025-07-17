@@ -8,6 +8,16 @@
       <mat-error>Заглавието трябва да съдържа поне 3 символа!</mat-error>
     </mat-form-field>
 
+    <mat-form-field>
+      <mat-label>Категория</mat-label>
+      <mat-select formControlName="category" required>
+        <mat-option>--</mat-option>
+        @for (cat of categoriesArr; track cat){
+        <mat-option [value]="cat">{{cat}}</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+
     <mat-form-field class="form-group">
       <mat-label for="description">Описание</mat-label>
       <textarea

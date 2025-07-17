@@ -45,3 +45,15 @@ mat-error {
 mat-form-field {
   width: 400px;
 }
+
+.mat-mdc-option.mdc-list-item{
+  background-color: white;
+}
+
+.mat-mdc-option.mdc-list-item:hover{
+  background-color: rgb(187, 182, 182);
+}
+
+.mat-mdc-option-active.mdc-list-item {
+  background: grey !important;
+}
