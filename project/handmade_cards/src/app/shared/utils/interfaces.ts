@@ -27,9 +27,16 @@ export interface UserProf {
   updatedAt: string;
 }
 
-export interface CardInt {
+export interface CardInitForm {
   title: string;
   description: string;
+  category?: string;
+}
+
+export interface CardIntFull {
+  title: string;
+  description: string;
+  category?: string;
   imageUrl: string;
   author: string;
 }
@@ -38,9 +45,10 @@ export interface CardResp {
   title: string;
   description: string;
   imageUrl: string;
+  category: string;
   author: string;
   likes: string[];
   _id: string;
-  //   createdAt: string;
-  //   updatedAt: string;
+  createdAt: string;
+  updatedAt: string;
 }

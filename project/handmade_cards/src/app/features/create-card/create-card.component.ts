@@ -15,10 +15,9 @@ import {
 } from '@angular/material/input';
 import { UploadPhoto } from '../../core/services/uploadPhoto-service/uploadphoto.service';
 import { getUserData } from '../../shared/utils/userData';
-import { CardInt } from '../../shared/utils/interfaces';
+import { CardInitForm, CardIntFull } from '../../shared/utils/interfaces';
 import { CardService } from '../../core/services/card-service/card.service';
-import { MatOption } from '@angular/material/autocomplete';
-import { MatSelect } from '@angular/material/select';
+import { MatOption, MatSelect } from '@angular/material/select';
 
 @Component({
   selector: 'app-create-card',
@@ -42,8 +41,8 @@ export class CreateCard {
     private cardService: CardService
   ) {}
   createCard = new FormGroup({
-    title: new FormControl('', [Validators.required]),
-    description: new FormControl(''),
+    title: new FormControl('', [Validators.required, Validators.minLength(3)]),
+    description: new FormControl('', Validators.minLength(6)),
     category: new FormControl(null, Validators.required),
   });
 
@@ -83,25 +82,39 @@ export class CreateCard {
   }
 
   handlerSubmit() {
+    if (!this.imageUrl) {
+      console.warn('Image not uploaded yet. Please wait or upload an image.');
+      //* show a toast/snackbar to the user or desabling the submit button until the responce is done
+      return;
+    }
+
     if (this.createCard.valid) {
-      const formData: CardInt = this.createCard.value as CardInt;
-      console.log('formdata is:', formData);
+      const formData: CardInitForm = this.createCard.value as CardInitForm;
+      // console.log('formdata is:', formData);
 
-      const authorName = getUserData()?.username;
-      const authorID = getUserData()?._id;
+      const userData = getUserData();
 
-      const allData: CardInt = {
+      if (!userData || !userData._id) {
+        console.error('User data missing, aborting request');
+        return;
+      }
+
+      const allData: CardIntFull = {
         ...formData,
-        imageUrl: this.imageUrl!,
-        author: authorID!,
+        imageUrl: this.imageUrl,
+        author: userData._id,
         // authorID: authorID!,
       };
 
       console.log('all Data:', allData);
 
       this.cardService.create(allData).subscribe({
-        next: () => {
+        next: (data) => {
+          console.log('Responce:', data, typeof data);
+
           this.createCard.reset();
+          this.selectedFileName = null;
+          this.imageUrl = null;
           //todo redirect to the same category
         },
         error: (err) => {

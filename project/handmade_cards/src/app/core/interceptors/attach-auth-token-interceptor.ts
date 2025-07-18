@@ -8,7 +8,7 @@ import {
   getUserData,
   setUserData,
 } from '../../shared/utils/userData';
-import { catchError, tap } from 'rxjs';
+import { catchError, tap, throwError } from 'rxjs';
 import { ServRespUserData } from '../../shared/utils/interfaces';
 import { IMAGE_UPLOAD } from '../../shared/cosntants/constants';
 
@@ -43,7 +43,7 @@ export const attachAuthTokenInterceptor: HttpInterceptorFn = (req, next) => {
         console.error('Error from Interceptor: ', err);
       }
       // can be added all kinds of error handlelings
-      return [err];
+      return throwError(() => err);
     })
   );
 };

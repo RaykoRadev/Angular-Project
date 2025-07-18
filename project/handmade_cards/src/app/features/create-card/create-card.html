@@ -5,7 +5,15 @@
     <mat-form-field class="form-group">
       <mat-label for="title">Заглавие</mat-label>
       <input matInput type="text" id="title" formControlName="title" />
-      <mat-error>Заглавието трябва да съдържа поне 3 символа!</mat-error>
+      <mat-error
+        *ngIf="createCard.get('title')?.errors?.['required'] && createCard.get('title')?.touched"
+      >
+        Заглавието е задължително!
+      </mat-error>
+      <mat-error
+        *ngIf="createCard.get('title')?.errors?.['minlength'] && createCard.get('title')?.touched"
+        >Заглавието трябва да съдържа поне 3 символа!</mat-error
+      >
     </mat-form-field>
 
     <mat-form-field>
@@ -21,12 +29,19 @@
     <mat-form-field class="form-group">
       <mat-label for="description">Описание</mat-label>
       <textarea
-        type="textarea"
         formControlName="description"
         id="description"
         matInput
       ></textarea>
-      <mat-error>Описанието трябва да съдържа поне 6 символа!</mat-error>
+      <mat-error
+        *ngIf="createCard.get('description')?.errors?.['required'] && createCard.get('description')?.touched"
+      >
+        Описанието е задължително!
+      </mat-error>
+      <mat-error
+        *ngIf="createCard.get('description')?.errors?.['minlength'] && createCard.get('description')?.touched"
+        >Описанието трябва да съдържа поне 6 символа!</mat-error
+      >
     </mat-form-field>
 
     <!--* to check the image name in DB -->
