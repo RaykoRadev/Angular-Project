@@ -1,4 +1,3 @@
-import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import {
   FormControl,
@@ -18,6 +17,8 @@ import { getUserData } from '../../shared/utils/userData';
 import { CardInitForm, CardIntFull } from '../../shared/utils/interfaces';
 import { CardService } from '../../core/services/card-service/card.service';
 import { MatOption, MatSelect } from '@angular/material/select';
+import { Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-create-card',
@@ -38,7 +39,8 @@ import { MatOption, MatSelect } from '@angular/material/select';
 export class CreateCard {
   constructor(
     private uploadService: UploadPhoto,
-    private cardService: CardService
+    private cardService: CardService,
+    private router: Router
   ) {}
   createCard = new FormGroup({
     title: new FormControl('', [Validators.required, Validators.minLength(3)]),
@@ -116,6 +118,7 @@ export class CreateCard {
           this.selectedFileName = null;
           this.imageUrl = null;
           //todo redirect to the same category
+          this.router.navigate([data.category]);
         },
         error: (err) => {
           console.error('Creating card faild', err);

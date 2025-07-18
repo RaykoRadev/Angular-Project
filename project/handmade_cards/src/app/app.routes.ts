@@ -9,6 +9,7 @@ import { Baptism } from './features/category/baptism/baptism.component';
 import { Boxes } from './features/category/boxes/boxes.component';
 import { Babies } from './features/category/babies/babies.component';
 import { CreateCard } from './features/create-card/create-card.component';
+import { ErrorPage } from './layout/error-page/error-page.component';
 
 export const routes: Routes = [
   { path: 'home', component: Home },
@@ -18,17 +19,17 @@ export const routes: Routes = [
 
   // { path: 'anniversary', component: Anniversary },
   {
-    path: 'anniversary',
+    path: 'Юбилейни',
     loadComponent: () =>
       import('./features/category/anniversary/anniversary.component').then(
         (c) => c.Anniversary
       ),
   },
-  { path: 'birthday', component: Birthday },
-  { path: 'wedding', component: Wedding },
-  { path: 'baptism', component: Baptism },
-  { path: 'boxes', component: Boxes },
-  { path: 'babies', component: Babies },
+  { path: 'Рожден ден', component: Birthday },
+  { path: 'Сватбени', component: Wedding },
+  { path: 'Кръщене', component: Baptism },
+  { path: 'Кутии', component: Boxes },
+  { path: 'Бебешки', component: Babies },
   { path: 'create', component: CreateCard },
   {
     path: 'me',
@@ -37,7 +38,15 @@ export const routes: Routes = [
         (c) => c.UserProfileComponent
       ),
   },
+  {
+    path: 'details/:id',
+    loadComponent: () =>
+      import('./features/category/details/details.component').then(
+        (c) => c.Details
+      ),
+  },
 
   //! always in the bottom
-  { path: '**', redirectTo: '/home' },
+  // { path: '**', redirectTo: '/home' },
+  { path: '**', component: ErrorPage },
 ];
