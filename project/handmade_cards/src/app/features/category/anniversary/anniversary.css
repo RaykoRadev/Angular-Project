@@ -9,6 +9,21 @@
   h5{
     padding-top: 1em;
   }
+
+  /* drop menu backgrounds */
+
+
+
+    .mat-mdc-option.mdc-list-item {
+      background: white;
+      text-align: center;
+    }
+    .mat-mdc-option.mdc-list-item:hover {
+      background: rgb(187, 182, 182);
+    }
+    .mat-mdc-option-active.mdc-list-item {
+      background: grey !important;
+    }
 }
 
 .inside-wraper {
@@ -23,6 +38,12 @@
 
 section {
   border-radius: 1em;
+  display: flex;
+    gap: 2em;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+
 
   a {
     text-decoration: none;
@@ -30,7 +51,7 @@ section {
   }
 
   img {
-    /* border-radius: 1em; */
+
     overflow: hidden;
     width: 630px;
     height: 903px;

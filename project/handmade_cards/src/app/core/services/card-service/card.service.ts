@@ -6,7 +6,7 @@ import {
   CardIntFull,
   CardResp,
 } from '../../../shared/utils/interfaces';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -23,9 +23,7 @@ export class CardService {
   }
 
   getByCategory(category: string): Observable<CardGetAllR> {
-    const url =
-      BASE_CARD_URL +
-      `?category=${category}&sortBy=createdAt&limit=10&order=asc`;
+    const url = `${BASE_CARD_URL}?category=${category}&sortBy=createdAt&limit=10&order=asc`;
     console.log(url);
 
     return this.http.get<CardGetAllR>(url);

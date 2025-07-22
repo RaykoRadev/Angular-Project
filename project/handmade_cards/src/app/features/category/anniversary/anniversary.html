@@ -1,57 +1,27 @@
 <div class="container">
   <h5>Картички за юбилеи, годишнини</h5>
   <div class="inside-wraper">
+    @if(cards.length){ @for(card of cards ; track card._id){
     <section>
-      <a [routerLink]="['/details', 'id']">
-        <img src="/DSC_6922.JPG" alt="birthday" />
+      <a [routerLink]="['/details', card._id]">
+        <img [src]="card.imageUrl" alt="birthday" />
         <div class="text">
-          <h2>Картички за рожден ден</h2>
+          <h2>{{card.title}}</h2>
           <!-- <p><strong>Tags:</strong> рожден ден, торта, свещщички</p> -->
           <!-- <p>asdas dadakdjlk fjlngljd fhgkjsdbfkjbsdfk jsdbf ljsdl lsjdf</p> -->
+          <p>Автор: {{card.author.username}}</p>
         </div>
       </a>
     </section>
-    <section>
-      <a routerLink="/wedding">
-        <img src="/DSC_7715.JPG" alt="wedding" />
-        <div class="text">
-          <h2>Картички за сватби</h2>
-          <!-- <p><strong>Tags:</strong> сватба, церемония, булка</p> -->
-          <!-- <p>asdas dadakdjlk fjlngljd fhgkjsdbfkjbsdfk jsdbf ljsdl lsjdf</p> -->
-        </div>
-      </a>
-    </section>
-    <section>
-      <a routerLink="/anniversary">
-        <img src="IMG_20221118_074342.jpg" alt="anniversary" />
-        <div class="text">
-          <h2>Картички за юбилей</h2>
-          <!-- <p><strong>tags:</strong> юбилей, годишнина, повод</p> -->
-          <p>Автор: азззз</p>
-        </div>
-      </a>
-    </section>
-    <section>
-      <a routerLink="/babies">
-        <img src="DSC_6504.JPG" alt="baby" />
-        <div class="text">
-          <h2>Бебешки картички</h2>
-          <!-- <p><strong>tags:</strong> бебе, родено, повод</p> -->
-          <p>Автор: азззз</p>
-        </div>
-      </a>
-    </section>
-    <section>
-      <a routerLink="/baptism">
-        <img src="DSC_7196.JPG" alt="Baptism" />
-        <div class="text">
-          <h2>Картички за кръщене</h2>
-          <!-- <p><strong>tags:</strong> кръщене, дете, повод</p> -->
-          <p>Автор: азззз</p>
-        </div>
-      </a>
-    </section>
-
+    } }
     <router-outlet></router-outlet>
   </div>
+  <mat-paginator
+    class="paginator-background"
+    [length]="100"
+    [pageSize]="10"
+    [pageSizeOptions]="[5, 10, 25, 100]"
+    aria-label="Select page"
+  >
+  </mat-paginator>
 </div>
