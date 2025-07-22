@@ -17,15 +17,15 @@ export const routes: Routes = [
   { path: 'login', component: LoginForm },
   { path: 'register', component: RegisterForm },
 
-  // { path: 'anniversary', component: Anniversary },
-  {
-    path: 'Юбилейни',
-    loadComponent: () =>
-      import('./features/category/anniversary/anniversary.component').then(
-        (c) => c.Anniversary
-      ),
-  },
-  { path: 'Рожден ден', component: Birthday },
+  { path: 'Юбилейни', component: Anniversary },
+  // {
+  //   path: 'Юбилейни',
+  //   loadComponent: () =>
+  //     import('./features/category/anniversary/anniversary.component').then(
+  //       (c) => c.Anniversary
+  //     ),
+  // },
+  { path: 'РожденДен', component: Birthday },
   { path: 'Сватбени', component: Wedding },
   { path: 'Кръщене', component: Baptism },
   { path: 'Кутии', component: Boxes },
@@ -39,7 +39,7 @@ export const routes: Routes = [
       ),
   },
   {
-    path: 'details/:id',
+    path: 'details/:card._id',
     loadComponent: () =>
       import('./features/category/details/details.component').then(
         (c) => c.Details
