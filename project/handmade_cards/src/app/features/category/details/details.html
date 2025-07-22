@@ -2,17 +2,18 @@
   <div class="container">
     <section>
       <h3>
-        {{cardInfo?.title}} <span>Автор: {{cardInfo?.author?.username}}</span>
+        {{cardInfo()?.title}}
+        <span>Автор: {{cardInfo()?.author?.username}}</span>
       </h3>
-      <img [src]="cardInfo?.imageUrl" alt="birthday" />
+      <img [src]="cardInfo()?.imageUrl" alt="birthday" />
       <div class="text">
         <!-- <p><strong>Tags:</strong> рожден ден, торта, свещщички</p> -->
-        <p>Описание: {{cardInfo?.description}}</p>
-        <p>Създадена на: {{cardInfo?.createdAt}}</p>
-        <p>Последно променена на: {{cardInfo?.updatedAt}}</p>
+        <p>Описание: {{cardInfo()?.description}}</p>
+        <p>Създадена на: {{cardInfo()?.createdAt}}</p>
+        <p>Последно променена на: {{cardInfo()?.updatedAt}}</p>
       </div>
       <div class="buttons">
-        <button type="button">Like: {{cardInfo?.likes?.length}}</button>
+        <button type="button">Like: {{cardInfo()?.likes?.length}}</button>
         <button type="button">Промени</button>
         <button type="button">Изтрий</button>
       </div>

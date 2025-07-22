@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { Component, OnInit, signal } from '@angular/core';
 import { Coments } from '../coments/coments.component';
 import { ActivatedRoute } from '@angular/router';
 import { CardService } from '../../../core/services/card-service/card.service';
@@ -12,11 +12,11 @@ import { CardResp } from '../../../shared/utils/interfaces';
 })
 export class Details implements OnInit {
   cardId: string = '';
-  cardInfo: CardResp | null = null;
+  cardInfo = signal<CardResp | null>(null);
+
   constructor(
     private activeRouting: ActivatedRoute,
-    private cardService: CardService,
-    private cdr: ChangeDetectorRef
+    private cardService: CardService
   ) {}
 
   ngOnInit(): void {
@@ -27,16 +27,14 @@ export class Details implements OnInit {
         this.loadData(this.cardId);
       },
     });
-    // console.log(this.activeRouting.params);
   }
 
   private loadData(cardId: string) {
     this.cardService.getOneById(cardId).subscribe({
       next: (card) => {
         console.log('card info:', card);
-        this.cardInfo = card;
+        this.cardInfo.set(card);
         console.log(this.cardInfo);
-        this.cdr.detectChanges();
       },
       error: (err) => {
         console.error('Card info loading faild', err);
