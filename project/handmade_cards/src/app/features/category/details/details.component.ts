@@ -1,9 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { CreateCard } from '../../create-card/create-card.component';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { Coments } from '../coments/coments.component';
 import { ActivatedRoute } from '@angular/router';
 import { CardService } from '../../../core/services/card-service/card.service';
-import { tap } from 'rxjs';
 import { CardResp } from '../../../shared/utils/interfaces';
 
 @Component({
@@ -17,7 +15,8 @@ export class Details implements OnInit {
   cardInfo: CardResp | null = null;
   constructor(
     private activeRouting: ActivatedRoute,
-    private cardService: CardService
+    private cardService: CardService,
+    private cdr: ChangeDetectorRef
   ) {}
 
   ngOnInit(): void {
@@ -37,6 +36,7 @@ export class Details implements OnInit {
         console.log('card info:', card);
         this.cardInfo = card;
         console.log(this.cardInfo);
+        this.cdr.detectChanges();
       },
       error: (err) => {
         console.error('Card info loading faild', err);
