@@ -16,6 +16,8 @@ export interface ServRespUserData {
   token: string;
   username: string;
   _id: string;
+  createdAt?: string;
+  updatedAt?: string;
 }
 
 export interface UserProf {
@@ -26,6 +28,8 @@ export interface UserProf {
   createdAt: string;
   updatedAt: string;
 }
+
+//* cards
 
 export interface CardInitForm {
   title: string;
@@ -41,14 +45,43 @@ export interface CardIntFull {
   author: string;
 }
 
+//! lets see if is gona work if author is an object
+
+// export interface CardResp {
+//   title: string;
+//   description: string;
+//   imageUrl: string;
+//   category: string;
+//   author: string;
+//   likes: string[];
+//   _id: string;
+//   createdAt: string;
+//   updatedAt: string;
+// }
 export interface CardResp {
+  _id: string;
   title: string;
   description: string;
   imageUrl: string;
   category: string;
-  author: string;
+  author: Author;
   likes: string[];
-  _id: string;
   createdAt: string;
   updatedAt: string;
+}
+
+export interface CardGetAllR {
+  data: CardResp[];
+  pagination: {
+    total: number;
+    page: number;
+    limit: number;
+    totalPages: number;
+  };
+}
+
+interface Author {
+  _id: string;
+  username: string;
+  email: string;
 }

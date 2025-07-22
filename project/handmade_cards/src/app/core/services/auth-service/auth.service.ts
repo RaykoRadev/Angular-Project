@@ -23,7 +23,7 @@ export class AuthService {
   );
   currentUser$: Observable<ServRespUserData | null> = this.currentUserSubj;
 
-  private _isLoggedIn = signal<boolean>(false);
+  private _isLoggedIn = signal<boolean>(!!getUserData());
   public isLoggedIn = this._isLoggedIn.asReadonly();
 
   constructor(private userService: UserService) {}
