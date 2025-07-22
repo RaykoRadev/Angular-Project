@@ -4,5 +4,10 @@
   --search-input-color: #5f359c;
   /* --button-color-hoover: #f4d44d; */
   --button-color-hoover: #f4e901;
-  --background:#eee
+  --background:#eee;
+
+  /* drop menu */
+  --drop-menu-bg: white;
+  --drop-menu-bg-hover:rgb(187, 182, 182);
+  --drop-menu-bg-select: grey;
 }

@@ -49,13 +49,13 @@ mat-form-field {
 
 /* drop menu backgrounds */
 .mat-mdc-option.mdc-list-item{
-  background-color: white;
+  background-color: var(--drop-menu-bg);
 }
 
 .mat-mdc-option.mdc-list-item:hover{
-  background-color: rgb(187, 182, 182);
+  background-color: var(--drop-menu-bg-hover);
 }
 
 .mat-mdc-option-active.mdc-list-item {
-  background: grey !important;
+  background: var(--drop-menu-bg-select) !important;
 }

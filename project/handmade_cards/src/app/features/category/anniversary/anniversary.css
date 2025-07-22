@@ -10,20 +10,7 @@
     padding-top: 1em;
   }
 
-  /* drop menu backgrounds */
 
-
-
-    .mat-mdc-option.mdc-list-item {
-      background: white;
-      text-align: center;
-    }
-    .mat-mdc-option.mdc-list-item:hover {
-      background: rgb(187, 182, 182);
-    }
-    .mat-mdc-option-active.mdc-list-item {
-      background: grey !important;
-    }
 }
 
 .inside-wraper {
@@ -71,4 +58,22 @@ section {
       font-size: 0.9em;
     }
   }
+}
+
+/* Style the open paginator dropdown menu */
+::ng-deep .mat-mdc-select-panel {
+  background: var(--drop-menu-bg) !important;
+  color: #222 !important;
+}
+
+/* Style dropdown options on hover */
+::ng-deep .mat-mdc-option:hover {
+  background: var(--drop-menu-bg-hover) !important;
+  color: #111 !important;
+}
+
+/* Style the selected option in the open paginator dropdown */
+::ng-deep .mat-mdc-select-panel .mat-mdc-option.mdc-list-item--selected {
+  background: var(--drop-menu-bg-select) !important;
+  /* color: #003344 !important; */
 }
