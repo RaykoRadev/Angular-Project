@@ -16,7 +16,7 @@
   - Connect Angular's `Validators.email` to both form controls.
   - Show `<mat-error>` if email is invalid.
 
-- [ ] Fix **layout bug**: password mismatch error is showing _inside input_:
+- [x] Fix **layout bug**: password mismatch error is showing _inside input_:
 
   - Ensure `<mat-error>` is inside `<mat-form-field>` and outside `<input>`.
   - Replace `@if` with `*ngIf` to ensure proper rendering.
@@ -50,12 +50,12 @@
   - Only available to the creator.
   - Confirm before deletion.
 
-- [ ] **Create New Card**
+- [x] **Create New Card**
 
   - Form with image upload, title, description.
   - Connect to backend and rerender gallery.
 
-- [ ] **User Profile View**
+- [x] **User Profile View**
 
   - Display user information and their posted cards.
 

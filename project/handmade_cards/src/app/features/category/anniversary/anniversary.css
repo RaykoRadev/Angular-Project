@@ -9,8 +9,6 @@
   h5{
     padding-top: 1em;
   }
-
-
 }
 
 .inside-wraper {
@@ -30,7 +28,6 @@ section {
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-
 
   a {
     text-decoration: none;
