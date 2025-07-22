@@ -38,5 +38,10 @@ export class CardService {
 
   edit() {}
 
-  delete() {}
+  delete(cardId: string) {
+    const url = `${BASE_CARD_URL}/delete/${cardId}`;
+    console.log(url);
+
+    return this.http.delete(url);
+  }
 }

@@ -15,7 +15,9 @@
       <div class="buttons">
         <button type="button">Like: {{cardInfo()?.likes?.length}}</button>
         <button type="button">Промени</button>
-        <button type="button">Изтрий</button>
+        <button type="button" matButton="elevated" (click)="deleteFunk()">
+          Изтрий
+        </button>
       </div>
     </section>
   </div>

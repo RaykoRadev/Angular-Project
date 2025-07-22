@@ -1,0 +1,12 @@
+<div class="container">
+  <h5 mat-dialog-title>Потвърждение за изтриване</h5>
+  <mat-dialog-content>
+    Сигурен/а ли си че искаш да изтриеш картичката/кутията?
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close="cancel">Не</button>
+    <button mat-raised-button color="warn" [mat-dialog-close]="'confirm'">
+      Да
+    </button>
+  </mat-dialog-actions>
+</div>
