@@ -46,6 +46,10 @@ section {
   }
 
   .text {
+    width: 630px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
     padding: 1em;
     border-top: none;
     border-bottom-left-radius: 1em;
@@ -54,6 +58,8 @@ section {
 
     p {
       font-size: 0.9em;
+      padding: 0.2em;
+      font-weight: 500;
     }
   }
     .buttons {
@@ -75,6 +81,12 @@ section {
       margin-top: 1.4em;
       /* margin-left: 0.4em; */
     }
+
+    button:disabled {
+      opacity: 0.7;
+    }
+
+
 
     button:hover {
       background-color: var(--button-color-hoover);

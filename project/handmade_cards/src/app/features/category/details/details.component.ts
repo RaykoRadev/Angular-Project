@@ -1,20 +1,24 @@
-import { Component, Inject, OnInit, signal } from '@angular/core';
+import { Component, inject, OnInit, signal } from '@angular/core';
 import { Coments } from '../coments/coments.component';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CardService } from '../../../core/services/card-service/card.service';
 import { CardResp } from '../../../shared/utils/interfaces';
 import { MatDialog } from '@angular/material/dialog';
 import { DeleteCard } from '../../delete-card/delete-card.component';
+import { getUserData, isLogged } from '../../../shared/utils/userData';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-details',
-  imports: [Coments],
+  imports: [Coments, CommonModule],
   templateUrl: './details.html',
   styleUrl: './details.css',
 })
 export class Details implements OnInit {
   cardId: string = '';
   cardInfo = signal<CardResp | null>(null);
+  isOwner: boolean = false;
+  isLoggedIn = signal<boolean>(!!getUserData());
 
   constructor(
     private activeRouting: ActivatedRoute,
@@ -36,10 +40,11 @@ export class Details implements OnInit {
   private loadData(cardId: string) {
     this.cardService.getOneById(cardId).subscribe({
       next: (card) => {
-        console.log('card info:', card);
+        // console.log('card info:', card);
         this.cardInfo.set(card);
-        console.log(this.cardInfo);
-        // const confirmation = this.deleteDialog.open(DeleteCard);
+        // console.log(this.cardInfo);
+        this.isOwner = this.cardInfo()?.author._id === getUserData()?._id;
+        console.log(this.isOwner);
       },
       error: (err) => {
         console.error('Card info loading faild', err);
@@ -58,6 +63,11 @@ export class Details implements OnInit {
 
         this.cardService.delete(this.cardId).subscribe({
           next: () => {
+            if (this.isOwner) {
+              throw new Notification(
+                'Нямаш право да изтриеш тази картичка/публикация!'
+              );
+            }
             this.router.navigate([this.cardInfo()?.category]);
           },
           error: (err) => {

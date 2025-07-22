@@ -8,14 +8,35 @@
       <img [src]="cardInfo()?.imageUrl" alt="birthday" />
       <div class="text">
         <!-- <p><strong>Tags:</strong> рожден ден, торта, свещщички</p> -->
-        <p>Описание: {{cardInfo()?.description}}</p>
-        <p>Създадена на: {{cardInfo()?.createdAt}}</p>
-        <p>Последно променена на: {{cardInfo()?.updatedAt}}</p>
+        <p><strong>Описание:</strong> {{cardInfo()?.description}}</p>
+        <p><strong>Likes:</strong> {{cardInfo()?.likes?.length}}</p>
+        <p><strong>Създадена на:</strong> {{cardInfo()?.createdAt}}</p>
+        <p><strong>Последно променена на:</strong> {{cardInfo()?.updatedAt}}</p>
       </div>
       <div class="buttons">
-        <button type="button">Like: {{cardInfo()?.likes?.length}}</button>
-        <button type="button">Промени</button>
-        <button type="button" matButton="elevated" (click)="deleteFunk()">
+        <button
+          [disabled]="isLoggedIn() && isOwner"
+          *ngIf="isLoggedIn() && !isOwner"
+          type="button"
+        >
+          Like <i class="fa-solid fa-thumbs-up"></i>
+        </button>
+
+        <button
+          [disabled]="isLoggedIn() && !isOwner"
+          *ngIf="isOwner"
+          type="button"
+        >
+          Промени
+        </button>
+
+        <button
+          [disabled]="isLoggedIn() && !isOwner"
+          *ngIf="isOwner"
+          type="button"
+          matButton="elevated"
+          (click)="deleteFunk()"
+        >
           Изтрий
         </button>
       </div>
