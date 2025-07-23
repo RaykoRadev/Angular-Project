@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { ServRespUserData } from '../../shared/utils/interfaces';
-import { getUserData } from '../../shared/utils/userData';
 import { AuthService } from '../../core/services/auth-service/auth.service';
 import { UserService } from '../../core/services/user-service/user.service';
 

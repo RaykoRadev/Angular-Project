@@ -10,10 +10,12 @@ import { Boxes } from './features/category/boxes/boxes.component';
 import { Babies } from './features/category/babies/babies.component';
 import { CreateCard } from './features/create-card/create-card.component';
 import { ErrorPage } from './layout/error-page/error-page.component';
+import { CategoryComponent } from './features/category/category.component/category.component';
 
 export const routes: Routes = [
   { path: 'home', component: Home },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: 'category', component: CategoryComponent },
   { path: 'login', component: LoginForm },
   { path: 'register', component: RegisterForm },
 

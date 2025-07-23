@@ -1,4 +1,4 @@
-/* .container{
+.container {
   display: flex;
   gap: 2em;
   flex-wrap: wrap;
@@ -12,13 +12,13 @@
 section {
   border-radius: 1em;
 
-  a{
+  a {
     text-decoration: none;
     color: black;
   }
 
-  img{
-    border-radius: 1em;
+  img {
+    /* border-radius: 1em; */
     overflow: hidden;
     width: 450px;
     height: 645px;
@@ -26,7 +26,7 @@ section {
     border-top-right-radius: 1em;
   }
 
-  .text{
+  .text {
     padding: 1em;
     border: 1px solid var(--button-color);
     border-top: none;
@@ -34,8 +34,8 @@ section {
     border-bottom-right-radius: 1em;
 
 
-    p{
+    p {
       font-size: 0.9em;
     }
   }
-} */
+}
