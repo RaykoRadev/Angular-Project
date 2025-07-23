@@ -15,16 +15,17 @@ import { UserService } from '../../core/services/user-service/user.service';
 })
 export class HeaderComponent implements OnInit {
   user: ServRespUserData | null = null;
-  logName = getUserData();
+  // logName = getUserData();
+  name = 'guest';
 
   constructor(private router: Router, private authService: AuthService) {}
 
   ngOnInit(): void {
     this.authService.currentUser$.subscribe((user) => {
       this.user = user;
+      this.name = this.user?.username || 'guest';
     });
   }
-  name = this.logName ? this.logName.username : 'guest';
   onLogout(e: Event) {
     e.preventDefault();
     this.authService.logout();
