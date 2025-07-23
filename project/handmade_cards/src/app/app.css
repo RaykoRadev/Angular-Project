@@ -1,4 +1,9 @@
-
+#image{
+  /* background-image: url(../../public/939cc3504de5ae7d62bb98d64c662896.jpg); */
+  /* background-image: url(../../public/124fe2752b60de810e7640d76ab5c7f2.jpg); */
+  background-image: url(../../public/background.jpg);
+  background-size: cover;
+}
 
 .main-layout {
   display: flex;

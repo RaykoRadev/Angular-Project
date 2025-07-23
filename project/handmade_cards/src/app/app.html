@@ -5,15 +5,15 @@
 </div>
 <app-footer></app-footer> -->
 <!-- app.component.html -->
+<div class="image" id="image">
+  <app-header></app-header>
 
-<app-header></app-header>
+  <div class="main-layout">
+    <app-nav-category class="aside"></app-nav-category>
 
-<div class="main-layout">
-  <app-nav-category class="aside"></app-nav-category>
-
-  <div class="content-wrapper">
-    <router-outlet></router-outlet>
+    <div class="content-wrapper">
+      <router-outlet></router-outlet>
+    </div>
   </div>
 </div>
-
 <app-footer></app-footer>
