@@ -11,6 +11,7 @@ import { Babies } from './features/category/babies/babies.component';
 import { CreateCard } from './features/create-card/create-card.component';
 import { ErrorPage } from './layout/error-page/error-page.component';
 import { CategoryComponent } from './features/category/category.component/category.component';
+import { routeGuard } from './core/guards/route.guard';
 
 export const routes: Routes = [
   { path: 'home', component: Home },
@@ -35,6 +36,7 @@ export const routes: Routes = [
   { path: 'create', component: CreateCard },
   {
     path: 'me',
+    canActivate: [routeGuard],
     loadComponent: () =>
       import('./auth/user-profile/user-profile.component').then(
         (c) => c.UserProfileComponent
