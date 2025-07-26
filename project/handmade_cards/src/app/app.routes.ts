@@ -12,6 +12,8 @@ import { CreateCard } from './features/create-card/create-card.component';
 import { ErrorPage } from './layout/error-page/error-page.component';
 import { CategoryComponent } from './features/category/category.component/category.component';
 import { routeGuard } from './core/guards/route.guard';
+import { EditCard } from './features/edit-card/edit-card.component';
+import { Details } from './features/category/details/details.component';
 
 export const routes: Routes = [
   { path: 'home', component: Home },
@@ -47,6 +49,20 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./features/category/details/details.component').then(
         (c) => c.Details
+      ),
+    // component: Details,
+    // children: [
+    //   {
+    //     path: 'edit/:card._id',
+    //     component: EditCard,
+    //   },
+    // ],
+  },
+  {
+    path: 'edit/:card._id',
+    loadComponent: () =>
+      import('./features/edit-card/edit-card.component').then(
+        (c) => c.EditCard
       ),
   },
 
