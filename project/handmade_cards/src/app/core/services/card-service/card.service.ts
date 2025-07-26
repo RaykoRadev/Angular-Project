@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { BASE_CARD_URL } from '../../../shared/cosntants/constants';
 import {
   CardGetAllR,
+  CardInitForm,
   CardIntFull,
   CardResp,
 } from '../../../shared/utils/interfaces';
@@ -36,7 +37,10 @@ export class CardService {
     return this.http.get<CardResp>(url);
   }
 
-  edit() {}
+  edit(cardId: string, data: CardIntFull | CardInitForm): Observable<CardResp> {
+    const url = `${BASE_CARD_URL}/edit/${cardId}`;
+    return this.http.put<CardResp>(url, data);
+  }
 
   delete(cardId: string) {
     const url = `${BASE_CARD_URL}/delete/${cardId}`;
