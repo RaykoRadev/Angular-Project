@@ -9,7 +9,7 @@
       <ng-container *ngIf="user; else loggedOut">
         <ul>
           <li>
-            <span>Добре дошъл {{ name }}</span>
+            <span>Добре дошъл, {{ name }}</span>
           </li>
           <li>
             <a routerLink="/me">Profile</a>
@@ -22,7 +22,7 @@
       <ng-template #loggedOut>
         <ul>
           <li>
-            <span>Добре дошъл {{ name }}</span>
+            <span>Добре дошъл, {{ name }}</span>
           </li>
           <li><a routerLink="/login">Вход</a></li>
           <li><a routerLink="/register">Регистрирация</a></li>
