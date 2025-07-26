@@ -51,7 +51,12 @@
     </button>
     <span *ngIf="selectedFileName">{{selectedFileName}}</span>
 
-    <button [disabled]="createCard.invalid" type="submit">
+    <mat-progress-bar
+      *ngIf="isUploading()"
+      mode="indeterminate"
+    ></mat-progress-bar>
+
+    <button [disabled]="createCard.invalid || isUploading()" type="submit">
       Създай картичка
     </button>
   </form>

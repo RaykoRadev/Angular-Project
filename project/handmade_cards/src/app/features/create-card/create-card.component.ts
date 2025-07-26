@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal, Signal } from '@angular/core';
 import {
   FormControl,
   FormGroup,
@@ -18,7 +18,8 @@ import { CardInitForm, CardIntFull } from '../../shared/utils/interfaces';
 import { CardService } from '../../core/services/card-service/card.service';
 import { MatOption, MatSelect } from '@angular/material/select';
 import { Router } from '@angular/router';
-import { CommonModule } from '@angular/common';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 @Component({
   selector: 'app-create-card',
@@ -32,6 +33,7 @@ import { CommonModule } from '@angular/common';
     MatSelect,
     FormsModule,
     CommonModule,
+    MatProgressBarModule,
   ],
   templateUrl: './create-card.html',
   styleUrl: './create-card.css',
@@ -59,6 +61,8 @@ export class CreateCard {
     'Кутии',
   ];
 
+  isUploading = signal<boolean>(false);
+
   uploadPhoto(e: Event) {
     console.log(e.target);
     // let imgString = '';
@@ -70,14 +74,18 @@ export class CreateCard {
       this.selectedFileName = file.name;
       // console.log(this.selectedFileName);
 
+      this.isUploading.set(true);
+
       const link = this.uploadService.uploadPhotoFn(file).subscribe({
         next: (url) => {
           this.imageUrl = url;
           console.log('url is: ', url);
+          this.isUploading.set(false);
         },
 
         error: (err) => {
           console.error('ImgBB upload faild', err);
+          this.isUploading.set(false);
         },
       });
     }
