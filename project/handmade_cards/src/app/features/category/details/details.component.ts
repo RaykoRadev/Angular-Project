@@ -1,6 +1,6 @@
 import { Component, inject, OnInit, signal } from '@angular/core';
 import { Coments } from '../coments/coments.component';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { CardService } from '../../../core/services/card-service/card.service';
 import { CardResp } from '../../../shared/utils/interfaces';
 import { MatDialog } from '@angular/material/dialog';
@@ -10,7 +10,7 @@ import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-details',
-  imports: [Coments, CommonModule],
+  imports: [Coments, CommonModule, RouterLink],
   templateUrl: './details.html',
   styleUrl: './details.css',
 })
@@ -31,6 +31,9 @@ export class Details implements OnInit {
     this.activeRouting.params.subscribe({
       next: (url) => {
         console.log('url: ', url['card._id']);
+        // console.log(this.activeRouting.snapshot.url[0].path);
+        // console.log(this.activeRouting.snapshot.url[1].path);
+
         this.cardId = url['card._id'];
         this.loadData(this.cardId);
       },
@@ -61,19 +64,20 @@ export class Details implements OnInit {
       if (result === 'confirm') {
         console.log('card deleted');
 
-        this.cardService.delete(this.cardId).subscribe({
-          next: () => {
-            if (this.isOwner) {
-              throw new Notification(
-                'Нямаш право да изтриеш тази картичка/публикация!'
-              );
-            }
-            this.router.navigate([this.cardInfo()?.category]);
-          },
-          error: (err) => {
-            console.error("Card couldn't be deleted!", err);
-          },
-        });
+        if (this.isOwner) {
+          this.cardService.delete(this.cardId).subscribe({
+            next: () => {
+              this.router.navigate([this.cardInfo()?.category]);
+            },
+            error: (err) => {
+              console.error("Card couldn't be deleted!", err);
+            },
+          });
+        } else {
+          throw new Notification(
+            'Нямаш право да изтриеш тази картичка/публикация!'
+          );
+        }
       } else {
         console.log('delete canceled');
       }

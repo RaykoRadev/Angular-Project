@@ -23,6 +23,7 @@
         </button>
 
         <button
+          [routerLink]="['/edit', cardInfo()?._id]"
           [disabled]="isLoggedIn() && !isOwner"
           *ngIf="isOwner"
           type="button"
