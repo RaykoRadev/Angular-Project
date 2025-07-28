@@ -23,8 +23,12 @@ export class CardService {
     return this.http.post<CardResp>(url, data);
   }
 
-  getByCategory(category: string): Observable<CardGetAllR> {
-    const url = `${BASE_CARD_URL}?category=${category}&sortBy=createdAt&limit=10&order=asc`;
+  getByCategory(
+    category: string,
+    page: number = 1,
+    limit: number = 5
+  ): Observable<CardGetAllR> {
+    const url = `${BASE_CARD_URL}?category=${category}&sortBy=createdAt&limit=${limit}&page=${page}&order=asc`;
     console.log(url);
 
     return this.http.get<CardGetAllR>(url);
