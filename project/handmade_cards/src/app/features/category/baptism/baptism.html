@@ -1,1 +1,27 @@
-<p>baptism works!</p>
+<div class="container">
+  <h5>Картички за кръщенета</h5>
+  <div class="inside-wraper">
+    @if(cards.length){ @for(card of cards ; track card._id){
+    <section>
+      <a [routerLink]="['/details', card._id]">
+        <img [src]="card.imageUrl" alt="birthday" />
+        <div class="text">
+          <h2>{{card.title}}</h2>
+          <!-- <p><strong>Tags:</strong> рожден ден, торта, свещщички</p> -->
+          <!-- <p>asdas dadakdjlk fjlngljd fhgkjsdbfkjbsdfk jsdbf ljsdl lsjdf</p> -->
+          <p>Автор: {{card.author.username}}</p>
+        </div>
+      </a>
+    </section>
+    } }
+    <router-outlet></router-outlet>
+  </div>
+  <mat-paginator
+    class="paginator-background"
+    [length]="length"
+    [pageSize]="pageSize"
+    [pageSizeOptions]="[5, 10, 25, 100]"
+    aria-label="Select page"
+  >
+  </mat-paginator>
+</div>
