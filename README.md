@@ -1,63 +1,59 @@
-# Angular-Project
-
 # HandmadeCards
 
-HandmadeCards is an Angular application for showcasing and managing handmade greeting cards. The project uses Angular CLI and Angular Material for UI components.
+This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.0.3.
 
-## Features
+## Development server
 
-- User authentication (login, register, logout)
-- Gallery view of cards by category
-- Card details, create, edit, and delete (with permissions)
-- User profile with posted cards
-- Like functionality for cards
-<!-- - Responsive layout with custom and Material styles -->
+To start a local development server, run:
 
-## Getting Started
-
-### Prerequisites
-
-- [Node.js](https://nodejs.org/) (v18+ recommended)
-- [Angular CLI](https://angular.dev/tools/cli)
-
-### Installation
-
-1. Clone the repository:
-
-   ```sh
-   git clone <your-repo-url>
-   cd project/handmade_cards
-   ```
-
-2. Install dependencies:
-   ```sh
-   npm install
-   ```
-
-### Development Server
-
-Start the local development server:
-
-```sh
+```bash
 ng serve
 ```
 
-Navigate to [http://localhost:4200/](http://localhost:4200/) in your browser.
+Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
 
-## Project Structure
+## Code scaffolding
 
-- `src/app/` - Main Angular application code
-- `public/` - Static assets (images, styles)
-- `README.md` - Project documentation
-- `TODO.md` - Project tasks and ideas
-- `SUGGESTIONS.md` - Suggestions and best practices
+Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
 
-## Contributing
+```bash
+ng generate component component-name
+```
 
-Pull requests are welcome! For major changes, please open an issue first to discuss what you would like to change.
+For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
 
-## License
+```bash
+ng generate --help
+```
 
-[MIT](LICENSE) (or specify your license)
+## Building
 
----
+To build the project run:
+
+```bash
+ng build
+```
+
+This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+
+## Running unit tests
+
+To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+
+```bash
+ng test
+```
+
+## Running end-to-end tests
+
+For end-to-end (e2e) testing, run:
+
+```bash
+ng e2e
+```
+
+Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+
+## Additional Resources
+
+For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
