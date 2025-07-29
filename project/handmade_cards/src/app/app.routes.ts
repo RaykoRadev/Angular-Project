@@ -14,6 +14,7 @@ import { CategoryComponent } from './features/category/category.component/catego
 import { routeGuard } from './core/guards/route.guard';
 import { EditCard } from './features/edit-card/edit-card.component';
 import { Details } from './features/category/details/details.component';
+import { ContactUs } from './layout/contact-us/contact-us.component';
 
 export const routes: Routes = [
   { path: 'home', component: Home },
@@ -21,6 +22,7 @@ export const routes: Routes = [
   { path: 'category', component: CategoryComponent },
   { path: 'login', component: LoginForm },
   { path: 'register', component: RegisterForm },
+  { path: 'contactUs', component: ContactUs },
 
   { path: 'Юбилейни', component: Anniversary },
   // {

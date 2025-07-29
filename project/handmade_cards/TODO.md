@@ -6,12 +6,18 @@
 - [x] Register functionality
 - [x] Logout functionality
 - [x] Password confirmation validator
+- [x] Gallery View
+- [x] Detail View
+- [x] Edit View
+- [x] Delete Functionality
+- [x] Create New Card
+- [x] User Profile View
 
 ---
 
 ## 🛠️ Fixes & Improvements
 
-- [ ] Fix **email validation** for Login and Register forms:
+- [x] Fix **email validation** for Login and Register forms:
 
   - Connect Angular's `Validators.email` to both form controls.
   - Show `<mat-error>` if email is invalid.
@@ -30,35 +36,6 @@
 
 ## 🔧 Core Features to Implement
 
-- [ ] **Gallery View**
-
-  - Display all available cards/items.
-  - Show basic info and thumbnail.
-
-- [ ] **Detail View**
-
-  - Show full details of a selected item.
-  - Include image, description, author, likes.
-
-- [ ] **Edit View**
-
-  - Allow only the owner to edit a card.
-  - Reuse create form with pre-filled data.
-
-- [ ] **Delete Functionality**
-
-  - Only available to the creator.
-  - Confirm before deletion.
-
-- [x] **Create New Card**
-
-  - Form with image upload, title, description.
-  - Connect to backend and rerender gallery.
-
-- [x] **User Profile View**
-
-  - Display user information and their posted cards.
-
 - [ ] **Likes Functionality**
   - Like button (only once per user).
   - Show total likes on each card.
@@ -66,10 +43,10 @@
 
 ---
 
-## 🧠 Ideas to Consider
+## 🧠 featured implementations and improvments
 
+- [ ] category component to be replaced by one component, which dinamicly render needed category
 - [ ] Add routing guards for protected pages (edit, create, etc.)
 - [ ] Use route resolver to preload card data.
 - [ ] Store user info in a shared `UserService`.
-- [ ] Create reusable components (e.g. card preview, error box).
-- [ ] Style using a mix of Angular Material and custom CSS.
+- [x] Create reusable components (e.g. card preview, error box).
