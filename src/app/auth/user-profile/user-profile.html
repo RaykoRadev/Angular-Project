@@ -3,10 +3,14 @@
 <div class="container" *ngIf="userInfo">
   <img src="avatar.jpg" alt="avatar" />
   <section>
-    <p><span>Username:</span> {{userInfo.username}}</p>
-    <p><span>Email:</span> {{userInfo.email}}</p>
-    <p><span>Role:</span> {{userInfo.role}}</p>
-    <p><span>Created at: </span> {{userInfo.createdAt}}</p>
-    <p><span>Updated at: </span> {{userInfo.updatedAt}}</p>
+    <p><strong>Потребителско име:</strong> {{userInfo.username}}</p>
+    <p><strong>Имейл:</strong> {{userInfo.email}}</p>
+    <p><strong>Роля:</strong> {{userInfo.role}}</p>
+    <p>
+      <strong>Създаден на: </strong> {{userInfo.createdAt | date:'dd/mm/yy'}}
+    </p>
+    <p>
+      <strong>Променен на: </strong> {{userInfo.updatedAt | date:'dd/mm/yy'}}
+    </p>
   </section>
 </div>
