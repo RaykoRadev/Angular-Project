@@ -52,4 +52,16 @@ export class CardService {
 
     return this.http.delete(url);
   }
+
+  sendlike(cardId: string): Observable<CardResp> {
+    const url = `${BASE_CARD_URL}/like/${cardId}`;
+    console.log(url);
+    return this.http.get<CardResp>(url);
+  }
+
+  unsendlike(cardId: string): Observable<CardResp> {
+    const url = `${BASE_CARD_URL}/unlike/${cardId}`;
+    console.log(url);
+    return this.http.get<CardResp>(url);
+  }
 }

@@ -65,7 +65,7 @@ export interface CardResp {
   imageUrl: string;
   category: string;
   author: Author;
-  likes: string[];
+  likes: Like[];
   createdAt: string;
   updatedAt: string;
 }
@@ -84,4 +84,9 @@ interface Author {
   _id: string;
   username: string;
   email: string;
+}
+
+interface Like {
+  _id: string;
+  username: string;
 }

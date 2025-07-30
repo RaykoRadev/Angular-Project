@@ -19,6 +19,7 @@ export class Details implements OnInit {
   cardInfo = signal<CardResp | null>(null);
   isOwner: boolean = false;
   isLoggedIn = signal<boolean>(!!getUserData());
+  isAlreagyLiked = signal<boolean>(false);
 
   constructor(
     private activeRouting: ActivatedRoute,
@@ -47,6 +48,11 @@ export class Details implements OnInit {
         this.cardInfo.set(card);
         // console.log(this.cardInfo);
         this.isOwner = this.cardInfo()?.author._id === getUserData()?._id;
+
+        if (this.cardInfo()?.likes.some((l) => l._id === getUserData()?._id)) {
+          this.isAlreagyLiked.set(true);
+        }
+
         console.log(this.isOwner);
       },
       error: (err) => {
@@ -82,5 +88,31 @@ export class Details implements OnInit {
         console.log('delete canceled');
       }
     });
+  }
+
+  onLike() {
+    if (this.isAlreagyLiked()) {
+      this.cardService.unsendlike(this.cardId).subscribe({
+        next: (data) => {
+          console.log('from unlike section:', data);
+          this.isAlreagyLiked.set(false);
+          this.loadData(this.cardId);
+        },
+        error: (err) => {
+          console.error('Unlike faild', err);
+        },
+      });
+    } else {
+      this.cardService.sendlike(this.cardId).subscribe({
+        next: (data) => {
+          console.log('from like section:', data);
+          this.isAlreagyLiked.set(true);
+          this.loadData(this.cardId);
+        },
+        error: (err) => {
+          console.error('Like faild', err);
+        },
+      });
+    }
   }
 }
