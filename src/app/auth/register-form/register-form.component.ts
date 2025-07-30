@@ -30,7 +30,6 @@ import { UserService } from '../../core/services/user-service/user.service';
   ],
   templateUrl: './register-form.html',
   styleUrl: './register-form.css',
-  // providers: [UserService],
 })
 export class RegisterForm {
   domains = DOMAINS;
@@ -68,7 +67,17 @@ export class RegisterForm {
 
   handlerSubmit() {
     if (this.registerForm.valid) {
-      const formData: UserReg = this.registerForm.value as UserReg;
+      const { email, username, passGroup } = this.registerForm.value;
+
+      const formData: UserReg = {
+        email,
+        username,
+        password: passGroup?.password,
+        repass: passGroup?.repass,
+      } as UserReg;
+
+      // this.registerForm.value as UserReg;
+      console.log('form data:', formData);
 
       // this.service.register(formData).subscribe();
       // this.registerForm.reset();
