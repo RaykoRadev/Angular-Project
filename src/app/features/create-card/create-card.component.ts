@@ -20,6 +20,7 @@ import { MatOption, MatSelect } from '@angular/material/select';
 import { Router } from '@angular/router';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { ErrorService } from '../../core/services/error-service/error.service';
 
 @Component({
   selector: 'app-create-card',
@@ -42,7 +43,8 @@ export class CreateCard {
   constructor(
     private uploadService: UploadPhoto,
     private cardService: CardService,
-    private router: Router
+    private router: Router,
+    private errorService: ErrorService
   ) {}
   createCard = new FormGroup({
     title: new FormControl('', [Validators.required, Validators.minLength(3)]),
@@ -125,11 +127,14 @@ export class CreateCard {
           this.createCard.reset();
           this.selectedFileName = null;
           this.imageUrl = null;
-          //todo redirect to the same category
           this.router.navigate([data.category]);
         },
         error: (err) => {
           console.error('Creating card faild', err);
+          this.errorService.setError(
+            err.error.message ||
+              'Неуспешно създаване на картичка! Моля пробвайте отново!'
+          );
         },
       });
     } else {

@@ -1,5 +1,5 @@
 import { Injectable, signal } from '@angular/core';
-import { BehaviorSubject, Observable, tap } from 'rxjs';
+import { BehaviorSubject, catchError, Observable, tap } from 'rxjs';
 import {
   ServRespUserData,
   UserLog,
@@ -13,6 +13,7 @@ import {
 } from '../../../shared/utils/userData';
 import { UserService } from '../user-service/user.service';
 import { UserProfileComponent } from '../../../auth/user-profile/user-profile.component';
+import { ErrorService } from '../error-service/error.service';
 
 @Injectable({
   providedIn: 'root',
@@ -26,7 +27,10 @@ export class AuthService {
   private _isLoggedIn = signal<boolean>(!!getUserData());
   public isLoggedIn = this._isLoggedIn.asReadonly();
 
-  constructor(private userService: UserService) {}
+  constructor(
+    private userService: UserService,
+    private errorService: ErrorService
+  ) {}
 
   login(data: UserLog) {
     return this.userService.login(data).pipe(
@@ -34,6 +38,12 @@ export class AuthService {
         setUserData(user);
         this._isLoggedIn.set(true);
         this.currentUserSubj.next(user);
+      }),
+      catchError((err) => {
+        this.errorService.setError(
+          err.error.message || 'Неуспешно вписване. Моля пробвайте отново!'
+        );
+        throw err;
       })
     );
   }
@@ -44,6 +54,12 @@ export class AuthService {
         setUserData(user);
         this._isLoggedIn.set(true);
         this.currentUserSubj.next(user);
+      }),
+      catchError((err) => {
+        this.errorService.setError(
+          err.error.message || 'Неуспешно регистриране. Моля пробвайте отново!'
+        );
+        throw err;
       })
     );
   }

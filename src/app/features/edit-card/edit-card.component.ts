@@ -25,6 +25,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { UploadPhoto } from '../../core/services/uploadPhoto-service/uploadphoto.service';
 import { getUserData } from '../../shared/utils/userData';
 import { TextFieldModule } from '@angular/cdk/text-field';
+import { ErrorService } from '../../core/services/error-service/error.service';
 
 @Component({
   selector: 'app-edit-card',
@@ -71,7 +72,8 @@ export class EditCard implements OnInit {
     private activeRouting: ActivatedRoute,
     private cardService: CardService,
     private uploadService: UploadPhoto,
-    private router: Router
+    private router: Router,
+    private errorService: ErrorService
   ) {
     this.cardForm = this.formBuilder.group({
       title: [
@@ -103,6 +105,10 @@ export class EditCard implements OnInit {
           },
           error: (err) => {
             console.error('Card info loading faild', err);
+            this.errorService.setError(
+              err.error.message ||
+                'Неуспешно създаване на картичка! Моля пробвайте отново!'
+            );
           },
         });
       },
