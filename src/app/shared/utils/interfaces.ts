@@ -90,3 +90,8 @@ interface Like {
   _id: string;
   username: string;
 }
+
+export interface GeoLocation {
+  lat: number;
+  lng: number;
+}
