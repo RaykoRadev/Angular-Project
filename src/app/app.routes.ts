@@ -15,6 +15,7 @@ import { routeGuard } from './core/guards/route.guard';
 import { EditCard } from './features/edit-card/edit-card.component';
 import { Details } from './features/category/details/details.component';
 import { ContactUs } from './layout/contact-us/contact-us.component';
+import { AllCards } from './features/category/all-cards/all-cards.component';
 
 export const routes: Routes = [
   { path: 'home', component: Home },
@@ -25,19 +26,13 @@ export const routes: Routes = [
   { path: 'contactUs', component: ContactUs },
 
   { path: 'Юбилейни', component: Anniversary },
-  // {
-  //   path: 'Юбилейни',
-  //   loadComponent: () =>
-  //     import('./features/category/anniversary/anniversary.component').then(
-  //       (c) => c.Anniversary
-  //     ),
-  // },
   { path: 'РожденДен', component: Birthday },
   { path: 'Сватбени', component: Wedding },
   { path: 'Кръщене', component: Baptism },
   { path: 'Кутии', component: Boxes },
   { path: 'Бебешки', component: Babies },
   { path: 'create', component: CreateCard },
+  { path: 'allCards', component: AllCards },
   {
     path: 'me',
     canActivate: [routeGuard],
@@ -52,13 +47,6 @@ export const routes: Routes = [
       import('./features/category/details/details.component').then(
         (c) => c.Details
       ),
-    // component: Details,
-    // children: [
-    //   {
-    //     path: 'edit/:card._id',
-    //     component: EditCard,
-    //   },
-    // ],
   },
   {
     path: 'edit/:card._id',

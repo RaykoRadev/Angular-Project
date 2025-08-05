@@ -7,7 +7,7 @@ aside {
   overflow: hidden;
 }
 
-aside>p {
+aside > p {
   font-size: 1.5em;
   font-weight: 600;
   text-align: center;
@@ -32,15 +32,23 @@ aside .accordion {
   border-top: 1px solid var(--button-color);
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
-  transition: background-color 0.3s ease, color 0.3s ease, border-radius 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease,
+    border-radius 0.3s ease;
 }
 
-.accordion input[type="radio"]:not(:checked)+label.lastOne {
+.accordion a {
+  width: 100%;
+  text-decoration: none;
+  display: inline-block;
+  color: white;
+  padding: 0.3em 0;
+}
+.accordion input[type="radio"]:not(:checked) + label.lastOne {
   border-bottom-left-radius: 1em;
   border-bottom-right-radius: 1em;
 }
 
-.accordion input[type="radio"]:checked+label {
+.accordion input[type="radio"]:checked + label {
   background-color: var(--button-color-hoover);
   color: black;
   border-bottom: none;
@@ -48,23 +56,16 @@ aside .accordion {
   border-bottom-right-radius: 0;
 }
 
-
 /* Hover for general labels */
 .accordion label:hover {
   background-color: var(--button-color-hoover);
   color: black;
 }
 
-.accordion label>a:hover {
+/* .accordion .content > p:hover {
   background-color: #f4d44d;
-  color: black;
-}
-
-
-.accordion a {
-  text-decoration: none;
-  color: white;
-}
+  color: black !important;
+} */
 
 /* Content area */
 .accordion .content {
@@ -85,13 +86,12 @@ aside .accordion {
   border-bottom-right-radius: 1em;
 }
 
-
-.accordion input[type="radio"]:checked+label+.content {
+.accordion input[type="radio"]:checked + label + .content {
   max-height: 15em;
   padding: 0.5em 0.8em;
 }
 
-.accordion input[type="radio"]:checked+label+.content:last-child {
+.accordion input[type="radio"]:checked + label + .content:last-child {
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
 }
@@ -99,7 +99,6 @@ aside .accordion {
 .accordion .content p {
   font-size: 0.9em;
   border-bottom: 1px solid black;
-  padding: 0.3em 0;
 }
 
 .accordion .content p:last-child {
@@ -108,6 +107,12 @@ aside .accordion {
 
 .accordion .content p:hover {
   background-color: var(--button-color-hoover);
+  color: black;
+}
+
+.accordion .content a:hover {
+  /* display: inline-block; */
+  /* min-width: 100%; */
   color: black;
 }
 
