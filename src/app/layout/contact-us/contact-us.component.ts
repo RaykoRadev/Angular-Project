@@ -17,9 +17,12 @@ export class ContactUs implements AfterViewInit {
   }
 
   customIcon = L.icon({
-    iconUrl: 'assets/leaflet/marker-icon.png',
-    iconRetinaUrl: 'assets/leaflet/marker-icon-2x.png',
-    shadowUrl: 'assets/leaflet/marker-shadow.png',
+    iconUrl: '/marker-icon-2x.png',
+    iconRetinaUrl: '/marker-icon-2x.png',
+    shadowUrl: '/marker-shadow.png',
+    // iconUrl: 'assets/leaflet/marker-icon.png',
+    // iconRetinaUrl: 'assets/leaflet/marker-icon-2x.png',
+    // shadowUrl: 'assets/leaflet/marker-shadow.png',
     iconSize: [25, 41],
     iconAnchor: [12, 41],
     popupAnchor: [1, -34],
@@ -35,7 +38,7 @@ export class ContactUs implements AfterViewInit {
 
     L.marker([43.24314, 26.5674], { icon: this.customIcon })
       .addTo(map)
-      .bindPopup('Вие е сте тук!')
+      .bindPopup('Ние е сме тук!')
       .openPopup();
 
     setTimeout(() => map.invalidateSize(), 300);
