@@ -2,6 +2,7 @@ import {
   HttpEvent,
   HttpInterceptorFn,
   HttpResponse,
+  HttpStatusCode,
 } from '@angular/common/http';
 import {
   clearUserData,
@@ -11,9 +12,15 @@ import {
 import { catchError, tap, throwError } from 'rxjs';
 import { ServRespUserData } from '../../shared/utils/interfaces';
 import { IMAGE_UPLOAD } from '../../shared/cosntants/constants';
+import { inject } from '@angular/core';
+import { Router } from '@angular/router';
+import { ErrorService } from '../services/error-service/error.service';
 
 export const attachAuthTokenInterceptor: HttpInterceptorFn = (req, next) => {
   const userData = getUserData();
+  const router = inject(Router);
+  const errorService = inject(ErrorService);
+
   if (userData && !req.url.startsWith(IMAGE_UPLOAD)) {
     req = req.clone({
       setHeaders: {
@@ -39,8 +46,14 @@ export const attachAuthTokenInterceptor: HttpInterceptorFn = (req, next) => {
     }),
 
     catchError((err) => {
-      if (err.status === 0) {
+      if (err.status === HttpStatusCode.Unauthorized) {
+        clearUserData();
+
+        errorService.setError(err.error.message || 'Впиши се тук!');
+
         console.error('Error from Interceptor: ', err);
+
+        router.navigate(['/login']);
       }
       // can be added all kinds of error handlelings
       return throwError(() => err);

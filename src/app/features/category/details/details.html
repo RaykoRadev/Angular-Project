@@ -10,13 +10,10 @@
         <!-- <p><strong>Tags:</strong> рожден ден, торта, свещщички</p> -->
         <p><strong>Описание:</strong> {{cardInfo()?.description}}</p>
         <p><strong>Likes: </strong> {{ cardInfo()?.likes?.length}}</p>
+        <p><strong>Създадена на:</strong> {{cardInfo()?.createdAt | date}}</p>
         <p>
-          <strong>Създадена на:</strong> {{cardInfo()?.createdAt |
-          date:'dd/mm/yy'}}
-        </p>
-        <p>
-          <strong>Последно променена на:</strong> {{cardInfo()?.updatedAt |
-          date:'dd/mm/yy'}}
+          <strong>Последно променена на:</strong> {{cardInfo()?.updatedAt|
+          date}}
         </p>
       </div>
       <div class="buttons">

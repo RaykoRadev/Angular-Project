@@ -9,6 +9,6 @@ export class ErrorService {
 
   setError(message: string) {
     this._error.set(message);
-    setTimeout(() => this._error.set(null), 30000);
+    setTimeout(() => this._error.set(null), 3000);
   }
 }
