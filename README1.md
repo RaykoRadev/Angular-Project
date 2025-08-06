@@ -1,59 +1,169 @@
-# HandmadeCards
+Sure! Here's a cleaner, more professional version of your README, formatted for better readability and presentation on GitHub:
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.0.3.
+---
 
-## Development server
+# 🎨 Handmade Cards App
 
-To start a local development server, run:
+A web application for sharing **handmade gift cards**.
+🌐 **Live demo**: [handmade-cards-by-fresia.vercel.app](https://handmade-cards-by-fresia.vercel.app/)
 
-```bash
-ng serve
+> 💡 _Note: The backend is hosted on a free tier server. It may take up to **50 seconds** to wake up on first request and stays active for **15 minutes** after the last interaction._
+
+---
+
+## 🚀 Features
+
+### 🧑 Guest Users Can:
+
+- Browse all cards (Каталог)
+- View card details (Детайли)
+- Navigate via side menu and use pagination
+- Visit the "About Us" (Свържи се с нас) page
+- Login (Вход) / Register (Регистрация)
+
+### 🔐 Authenticated Users Can:
+
+Use this test account:
+
+```
+Username: Rayko
+Password: asdasd
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+> _(Other test accounts available in comments below)_
 
-## Code scaffolding
+- Create new cards (Създай нова картичка)
+- Like / Unlike cards
+- Edit or Delete **own** cards
+- Logout
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+---
+
+## 🧪 Project Requirements (Covered)
+
+### Public Part
+
+- ✅ Home Page (`/`)
+- ✅ Login/Register (`/login`, `/register`)
+- ✅ Browse cards without authentication
+- ✅ View card details
+
+### Private Part
+
+- ✅ My Profile (`/me`, `/profile`)
+- ✅ Create, Edit, Delete cards
+- ✅ Like cards
+
+### General Requirements
+
+- ✅ At least 3 dynamic pages:
+
+  - Home
+  - Category
+  - My Profile
+
+- ✅ Specific views:
+
+  - All cards list (Всички на едно място)
+  - Individual card details
+
+- ✅ Full CRUD for Cards collection
+- ✅ Angular (Frontend) + Express + MongoDB (Backend)
+- ✅ RESTful communication
+- ✅ Authentication & Session handling
+- ✅ Client-side routing to:
+
+  - `/me`
+  - `/login`
+  - `/register`
+  - `/profile`
+  - `/category`
+  - `/create`
+  - `/:anniversary`
+  - `/details/:id`
+  - `/edit/:id`
+
+### 🧱 Code & Architecture
+
+- ✅ Meaningful Git commits
+- ✅ Component-based structure (Smart/Dumb components)
+- ✅ Strong folder organization
+- ✅ Use of Angular-specific concepts:
+
+  - TypeScript strict types
+  - Interfaces & Types
+  - Observables & RxJS (`tap`, `catchError`, `throwError`)
+  - Lifecycle hooks (`ngOnInit`, `ngOnDestroy`, `ngAfterViewInit`)
+  - Custom Pipes
+  - Route Guards
+
+### 🧪 Form Handling & Validation
+
+- ✅ Snackbar error messages
+- ✅ Form field validation (frontend & backend)
+- ✅ Server-side error feedback
+
+### 💅 UI/UX & Design
+
+- ✅ Custom UI with Angular Material
+- ✅ Responsive design
+- ✅ Loading spinners
+- ✅ Clean UX flow
+
+---
+
+## 🌍 Bonus Features
+
+- 🌐 Geo Location in "About Us"
+- 🖼️ ImgBB for image storage
+- 🚀 Deployed on Vercel
+- 📄 Pagination in cards catalog
+
+---
+
+## 🛠 Development Setup
+
+### 🔧 Backend
+
+Clone and run backend server:
+👉 [https://github.com/vladinson009/express-server](https://github.com/vladinson009/express-server) _(Thanks!)_
 
 ```bash
-ng generate component component-name
+npm install
+npm run dev
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+### 💻 Frontend (Angular)
 
 ```bash
-ng generate --help
+npm install
+npm run start
 ```
 
-## Building
+Once both servers are running, go to:
+`http://localhost:4200/`
 
-To build the project run:
+---
 
-```bash
-ng build
+## 🧪 Test Users
+
+```plaintext
+# Main test user:
+Username: Rayko
+Password: asdasd
+
+# Additional users (optional):
+# Moderator:
+# Username: moderator
+# Password: 123456
+
+# User:
+# Username: gabriela
+# Password: 123456
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+---
 
-## Running unit tests
+Feel free to contribute or fork the project! 😊
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+---
