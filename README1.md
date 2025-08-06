@@ -152,14 +152,6 @@ Once both servers are running, go to:
 Username: Rayko
 Password: asdasd
 
-# Additional users (optional):
-# Moderator:
-# Username: moderator
-# Password: 123456
-
-# User:
-# Username: gabriela
-# Password: 123456
 ```
 
 ---
