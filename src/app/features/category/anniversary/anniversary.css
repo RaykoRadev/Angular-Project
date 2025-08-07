@@ -1,4 +1,4 @@
-.container{
+.container {
   margin-left: 4em;
   display: flex;
   flex-direction: column;
@@ -6,7 +6,7 @@
   justify-content: center;
   border-radius: 1em;
 
-  h5{
+  h5 {
     padding-top: 1em;
   }
 }
@@ -19,15 +19,19 @@
   justify-content: center;
   padding: 2.5em;
   background-color: transparent;
+
+  .empty {
+    font-size: 1.5em;
+  }
 }
 
 section {
   border-radius: 1em;
   display: flex;
-    gap: 2em;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
+  gap: 2em;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
 
   a {
     text-decoration: none;
@@ -35,7 +39,6 @@ section {
   }
 
   img {
-
     overflow: hidden;
     width: 630px;
     height: 903px;
@@ -49,7 +52,6 @@ section {
     border-top: none;
     border-bottom-left-radius: 1em;
     border-bottom-right-radius: 1em;
-
 
     p {
       font-size: 0.9em;

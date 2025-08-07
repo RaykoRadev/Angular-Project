@@ -57,7 +57,7 @@ My Profile
 
 General requirements
 At least 3 dynamic pages:
-Home page
+
 Category
 My profile
 Details

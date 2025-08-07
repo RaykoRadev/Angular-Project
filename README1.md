@@ -58,9 +58,9 @@ Password: asdasd
 
 - ✅ At least 3 dynamic pages:
 
-  - Home
   - Category
   - My Profile
+  - Details
 
 - ✅ Specific views:
 

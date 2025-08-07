@@ -19,6 +19,10 @@
   justify-content: center;
   padding: 2.5em;
   background-color: transparent;
+
+  .empty {
+    font-size: 1.5em;
+  }
 }
 
 section {
@@ -35,7 +39,6 @@ section {
   }
 
   img {
-
     overflow: hidden;
     width: 630px;
     height: 903px;
@@ -49,7 +52,6 @@ section {
     border-top: none;
     border-bottom-left-radius: 1em;
     border-bottom-right-radius: 1em;
-
 
     p {
       font-size: 0.9em;
