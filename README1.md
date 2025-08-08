@@ -1,7 +1,3 @@
-Sure! Here's a cleaner, more professional version of your README, formatted for better readability and presentation on GitHub:
-
----
-
 # 🎨 Handmade Cards App
 
 A web application for sharing **handmade gift cards**.
@@ -79,7 +75,7 @@ Password: asdasd
   - `/profile`
   - `/category`
   - `/create`
-  - `/:anniversary`
+  - `/category/:anniversary`
   - `/details/:id`
   - `/edit/:id`
 
