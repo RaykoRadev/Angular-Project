@@ -19,7 +19,6 @@ button {
   /* padding: 0.5em; */
   font-size: 1.2em;
   margin-bottom: 1em;
-
 }
 
 button {
@@ -46,16 +45,22 @@ mat-form-field {
   width: 400px;
 }
 
-
 /* drop menu backgrounds */
-.mat-mdc-option.mdc-list-item{
+.mat-mdc-option.mdc-list-item {
   background-color: var(--drop-menu-bg);
 }
 
-.mat-mdc-option.mdc-list-item:hover{
+.mat-mdc-option.mdc-list-item:hover {
   background-color: var(--drop-menu-bg-hover);
 }
 
 .mat-mdc-option-active.mdc-list-item {
   background: var(--drop-menu-bg-select) !important;
+}
+
+button:disabled {
+  background-color: #ccc;
+  color: #666;
+  cursor: not-allowed;
+  opacity: 0.7;
 }

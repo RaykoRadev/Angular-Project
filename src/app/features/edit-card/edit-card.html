@@ -61,12 +61,13 @@
     <button type="button" mat-raised-button (click)="fileInput.click()">
       Избери снимка!
     </button>
-    <span *ngIf="selectedFileName">{{selectedFileName}}</span>
 
-    <mat-progress-bar
-      *ngIf="isUploading()"
-      mode="indeterminate"
-    ></mat-progress-bar>
+    @if (selectedFileName) {
+    <span>{{selectedFileName}}</span>
+
+    } @if (isUploading()) {
+    <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+    }
 
     <button [disabled]="cardForm.invalid || isUploading()" type="submit">
       Промени картичка
