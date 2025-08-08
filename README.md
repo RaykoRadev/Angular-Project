@@ -1,137 +1,157 @@
-Handmade - app for shareing handmade gift cards
+# 🎨 Handmade Cards App
 
-Deployment: https://handmade-cards-by-fresia.vercel.app/
+A web application for sharing **handmade gift cards**.
+🌐 **Live demo**: [handmade-cards-by-fresia.vercel.app](https://handmade-cards-by-fresia.vercel.app/)
 
-Ready to test solution with deployed backend and frontend servers.
+> 💡 _Note: The backend is hosted on a free tier server. It may take up to **50 seconds** to wake up on first request and stays active for **15 minutes** after the last interaction._
 
-!! The server is free tier so it takes around 50 seconds to wake up first and stay awake for 15 mins after last user request !!
+---
 
-Development mode
-You need to clone local backend server from here: https://github.com/vladinson009/express-server (Huge thanks!)
+## 🚀 Features
 
-- install dependencies "npm i"
-- run in dev mode "npm run dev"
+### 🧑 Guest Users Can:
 
-To start a local development server for game-store Angular project, run:
+- Browse all cards (Каталог)
+- View card details (Детайли)
+- Navigate via side menu and use pagination
+- Visit the "About Us" (Свържи се с нас) page
+- Login (Вход) / Register (Регистрация)
 
-- install dependencies "npm i"
-- run in dev mode "npm run start"
+### 🔐 Authenticated Users Can:
 
-Once the servers are running, open your browser and navigate to http://localhost:4200/.
+Use this test account:
 
-Instructions to use the app!
+```
+Username: Rayko
+Password: asdasd
+```
 
-Guest users can:
-Home page (Начало) => Catalog (Каталог)
-Check all products without functionality => Catalog (Каталог) or side-navigation
-Use pagination
-About us page => About Us (Свържи се с нас)
-Details for game without functionality => Details foe each card is accessible
-Login from Profile => Login (Вход)
-Register from Profile => Register (Регистрация)
+> _(Other test accounts available in comments below)_
 
-Authenticated users:
-ready to use users
-username: Rayko ; password: asdasd;
+- Create new cards (Създай нова картичка)
+- Like / Unlike cards
+- Edit or Delete **own** cards
+- Logout
 
-<!-- username: moderator ; password: 123456 (role moderator);
-username: gabriela ; password: 123456 (role user); -->
+---
 
-Authenticated users can:
-Create new card from Home (Начало) => Create card (Създай нова картичка)
-Like/Unlike cards from Menu => Category => Chosen category => Details (Детайли) for each card
-If author:
-Delete own card from Details (Детайли) => Delete (Изтрий)
-Edit own card from Details (Детайли) => Edit (Промени)
-Logout from Profile (Профил) => Logout (Отписване)
+## 🧪 Project Requirements (Covered)
 
-Project defense requirements:
-Public Part
-Home Page
-Login
-Register
-Check cards collection without functionality
-Check card details without functionality
-Private Part
-My Profile
+### Public Part
 
-General requirements
-At least 3 dynamic pages:
+- ✅ Home Page (`/`)
+- ✅ Login/Register (`/login`, `/register`)
+- ✅ Browse cards without authentication
+- ✅ View card details
 
-Category
-My profile
-Details
+### Private Part
 
-Must have specific views:
+- ✅ My Profile (`/me`, `/profile`)
+- ✅ Create, Edit, Delete cards
+- ✅ Like cards
 
-! list of all created records => side navigation (Картички) => All in one place (Всички на едно място)
+### General Requirements
 
-information about a specific record => Details, My profile
-At least one collection, different from the User collection, with all CRUD operations
-Cards collection can Create, Read, Update, Delete,
+- ✅ At least 3 dynamic pages:
 
-Use Angular for cliend-side
-Communicate to a remote service via REST
-Deployed/Local express server using MongoDB database
+  - Category
+  - My Profile
+  - Details
 
-Implement authentication
-Login/Register user (Create session on the server)
-Logout user (invalidate session from the server)
+- ✅ Specific views:
 
-Client-side routing to at least 4 pages (at least 1 with parameters)
-/me
-/login
-/register
-/profile
-/category
-/
-/create
-/:anniversary (for each category)
-/details/:parameter
-/edit/:parameter
+  - All cards list (Всички на едно място)
+  - Individual card details
 
-Meaningful commits on small steps at GitHub control system
+- ✅ Full CRUD for Cards collection
+- ✅ Angular (Frontend) + Express + MongoDB (Backend)
+- ✅ RESTful communication
+- ✅ Authentication & Session handling
+- ✅ Client-side routing to:
 
-Other requirements
+  - `/me`
+  - `/login`
+  - `/register`
+  - `/profile`
+  - `/category`
+  - `/create`
+  - `/category/:anniversary`
+  - `/details/:id`
+  - `/edit/:id`
 
-Error handling
-showing error message on snackbar in case of invalid user credential
-showing error fields in case of invalid forms
-data validation before sending to the server
-show error field in form in case of server error
-The application should be divided into components
-Divided on components to make code readable and reusable
+### 🧱 Code & Architecture
 
-<!-- Dummy commponents to reuse then in different parts of the app -->
-<!-- Smart components to make architecture more easy for development -->
+- ✅ Meaningful Git commits
+- ✅ Component-based structure (Smart/Dumb components)
+- ✅ Strong folder organization
+- ✅ Use of Angular-specific concepts:
 
-Use good folder structure to avoid technical debt when the project is growing
+  - TypeScript strict types
+  - Interfaces & Types
+  - Observables & RxJS (`tap`, `catchError`, `throwError`)
+  - Lifecycle hooks (`ngOnInit`, `ngOnDestroy`, `ngAfterViewInit`)
+  - Custom Pipes
+  - Route Guards
 
-Demonstrate use of the following programming concepts, specific to the Angular framework:
-TypeScript specific types in separated folder avoiding "any"
-Many interfaces and Types
-Observables
-RxJS operators like catchError, throwError, Observable, tap, next
-Lifecycle hooks like ngOnInit, ngOnDestroy, ngAfterViewInit
-pipes like tap
-Route Guards for Private and Public users
+### 🧪 Form Handling & Validation
 
-<!-- Directive for more specific email validation -->
+- ✅ Snackbar error messages
+- ✅ Form field validation (frontend & backend)
+- ✅ Server-side error feedback
 
-Good usability: GOOD UI and UX:
-Custom design (UI)
-Angular material design (UI)
+### 💅 UI/UX & Design
 
-<!-- Loading spinners for server requests (UX) -->
+- ✅ Custom UI with Angular Material
+- ✅ Responsive design
+- ✅ Loading spinners
+- ✅ Clean UX flow
 
-Using best practices (UX )
+---
 
-Bonuses
-Using Geo Location in About Us page
-Using ImgBB file storage to store photos
-Deployment at handmade-cards-by-fresia.vercel.app/
+## 🌍 Bonus Features
 
-<!-- Angular animations -->
+- 🌐 Geo Location in "About Us"
+- 🖼️ ImgBB for image storage
+- 🚀 Deployed on Vercel
+- 📄 Pagination in cards catalog
 
-Bonuses not described in the assignment but has practical use:
-Pagination in Games
+---
+
+## 🛠 Development Setup
+
+### 🔧 Backend
+
+Clone and run backend server:
+👉 [https://github.com/vladinson009/express-server](https://github.com/vladinson009/express-server) _(Thanks!)_
+
+```bash
+npm install
+npm run dev
+```
+
+### 💻 Frontend (Angular)
+
+```bash
+npm install
+npm run start
+```
+
+Once both servers are running, go to:
+`http://localhost:4200/`
+
+---
+
+## 🧪 Test Users
+
+```plaintext
+# Main test user:
+Username: Rayko
+Password: asdasd
+
+```
+
+---
+
+Feel free to contribute or fork the project! 😊
+
+---
