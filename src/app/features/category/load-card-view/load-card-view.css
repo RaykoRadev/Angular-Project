@@ -64,10 +64,12 @@ section {
   /* color: #003344 !important; */
 }
 
+/* spinner css is in the globale style.css */
+
 /* .spinner {
   color: --var(--button-color);
 } */
-.spinner.mat-progress-spinner circle,
+/* .spinner.mat-progress-spinner circle,
 .spinner.mat-spinner circle {
   stroke: orange !important;
-}
+} */
