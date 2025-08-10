@@ -5,6 +5,7 @@ import {
   inject,
   Input,
   OnInit,
+  signal,
   ViewChild,
 } from '@angular/core';
 import { ActivatedRoute, RouterLink, RouterOutlet } from '@angular/router';
@@ -18,10 +19,17 @@ import {
 } from '@angular/material/paginator';
 import { paginatorService } from '../../../core/services/paginator-service/paginator.service';
 import { routes } from '../../../app.routes';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @Component({
   selector: 'app-load-card-view',
-  imports: [RouterOutlet, RouterLink, CommonModule, MatPaginatorModule],
+  imports: [
+    RouterOutlet,
+    RouterLink,
+    CommonModule,
+    MatPaginatorModule,
+    MatProgressSpinnerModule,
+  ],
   templateUrl: './load-card-view.html',
   styleUrl: './load-card-view.css',
   providers: [{ provide: MatPaginatorIntl, useFactory: paginatorService }],
@@ -36,6 +44,8 @@ export class LoadCardView implements OnInit {
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
+  spinnerActivate = signal<boolean>(true);
+
   constructor(
     private activeRoute: ActivatedRoute,
     private cardService: CardService,
@@ -44,6 +54,7 @@ export class LoadCardView implements OnInit {
 
   ngOnInit(): void {
     this.activeRoute.url.subscribe(() => {
+      this.spinnerActivate.set(true);
       this.loadData();
     });
   }
@@ -57,6 +68,7 @@ export class LoadCardView implements OnInit {
         this.pageSize = e.pageSize;
 
         // this.cdr.detectChanges();
+        this.spinnerActivate.set(true);
         this.loadData();
       });
     } else {
@@ -75,6 +87,7 @@ export class LoadCardView implements OnInit {
           this.cards = data.data ?? [];
           // console.log('cards: ', this.cards);
           this.length = data.pagination.total ?? 100;
+          this.spinnerActivate.set(false);
           this.cdr.detectChanges();
         },
         error: (err) => {
