@@ -1,6 +1,6 @@
 <div class="inside-wraper">
   @if (spinnerActivate()) {
-  <mat-spinner></mat-spinner>
+  <mat-spinner class="spinner"></mat-spinner>
   } @else { @if(cards.length){ @for(card of cards ; track card._id){
   <section>
     <a [routerLink]="['/details', card._id]">

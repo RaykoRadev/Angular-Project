@@ -63,3 +63,11 @@ section {
   background: var(--drop-menu-bg-select) !important;
   /* color: #003344 !important; */
 }
+
+/* .spinner {
+  color: --var(--button-color);
+} */
+.spinner.mat-progress-spinner circle,
+.spinner.mat-spinner circle {
+  stroke: orange !important;
+}
