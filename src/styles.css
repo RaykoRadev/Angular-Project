@@ -13,7 +13,6 @@
 
 /* spinner css */
 
-.spinner.mat-progress-spinner circle,
-.spinner.mat-spinner circle {
-  stroke: --var(--button-color) !important;
+mat-spinner.spinner {
+  stroke: var(--button-color);
 }

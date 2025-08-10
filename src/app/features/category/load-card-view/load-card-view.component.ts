@@ -46,6 +46,8 @@ export class LoadCardView implements OnInit {
 
   spinnerActivate = signal<boolean>(true);
 
+  spinenerColor = 'orange';
+
   constructor(
     private activeRoute: ActivatedRoute,
     private cardService: CardService,

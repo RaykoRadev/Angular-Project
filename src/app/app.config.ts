@@ -9,6 +9,7 @@ import { routes } from './app.routes';
 import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { attachAuthTokenInterceptor } from './core/interceptors/attach-auth-token-interceptor';
 import { errorInterceptor } from './core/interceptors/error.interceptor';
+import { provideAnimations } from '@angular/platform-browser/animations';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -18,5 +19,6 @@ export const appConfig: ApplicationConfig = {
     provideHttpClient(
       withInterceptors([errorInterceptor, attachAuthTokenInterceptor])
     ),
+    provideAnimations(),
   ],
 };
