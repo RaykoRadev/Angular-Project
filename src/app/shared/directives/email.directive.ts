@@ -5,7 +5,7 @@ import {
   ValidationErrors,
   Validator,
 } from '@angular/forms';
-import { emailValidator } from '../shared/utils/emailValidator';
+import { emailValidator } from '../utils/emailValidator';
 
 // ! to be implementet somewhere in the feature
 

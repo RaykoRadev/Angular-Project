@@ -1,11 +1,11 @@
 import { Component, inject, OnInit, signal } from '@angular/core';
 import { Coments } from '../coments/coments.component';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
-import { CardService } from '../../../core/services/card-service/card.service';
-import { CardResp } from '../../../shared/utils/interfaces';
+import { CardService } from '../../core/services/card-service/card.service';
+import { CardResp } from '../../shared/utils/interfaces';
 import { MatDialog } from '@angular/material/dialog';
-import { DeleteCard } from '../../delete-card/delete-card.component';
-import { getUserData, isLogged } from '../../../shared/utils/userData';
+import { DeleteCard } from '../delete-card/delete-card.component';
+import { getUserData, isLogged } from '../../shared/utils/userData';
 import { CommonModule } from '@angular/common';
 
 @Component({

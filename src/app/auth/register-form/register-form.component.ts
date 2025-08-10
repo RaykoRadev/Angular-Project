@@ -9,7 +9,6 @@ import {
 import { UserReg } from '../../shared/utils/interfaces';
 import { Router } from '@angular/router';
 import { DOMAINS, EMAIL_PROVIDERS } from '../../shared/cosntants/constants';
-import { EmailDirective } from '../../directives/email.directive';
 import { CommonModule } from '@angular/common';
 import { MatError, MatFormField, MatLabel } from '@angular/material/form-field';
 import { MatInput } from '@angular/material/input';
