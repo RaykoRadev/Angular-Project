@@ -2,12 +2,6 @@ import { Routes } from '@angular/router';
 import { Home } from './features/home/home.component';
 import { LoginForm } from './auth/login/login-form.component';
 import { RegisterForm } from './auth/register-form/register-form.component';
-import { Anniversary } from './features/category/anniversary/anniversary.component';
-import { Birthday } from './features/category/birthday/birthday.component';
-import { Wedding } from './features/category/wedding/wedding.component';
-import { Baptism } from './features/category/baptism/baptism.component';
-import { Boxes } from './features/category/boxes/boxes.component';
-import { Babies } from './features/category/babies/babies.component';
 import { CreateCard } from './features/create-card/create-card.component';
 import { ErrorPage } from './layout/error-page/error-page.component';
 import { CategoryComponent } from './features/category/category.component/category.component';
@@ -15,7 +9,6 @@ import { routeGuard } from './core/guards/route.guard';
 import { EditCard } from './features/edit-card/edit-card.component';
 import { Details } from './features/category/details/details.component';
 import { ContactUs } from './layout/contact-us/contact-us.component';
-import { AllCards } from './features/category/all-cards/all-cards.component';
 
 export const routes: Routes = [
   { path: 'home', component: Home },
@@ -25,14 +18,15 @@ export const routes: Routes = [
   { path: 'register', component: RegisterForm },
   { path: 'contactUs', component: ContactUs },
 
-  { path: 'Юбилейни', component: Anniversary },
-  { path: 'РожденДен', component: Birthday },
-  { path: 'Сватбени', component: Wedding },
-  { path: 'Кръщене', component: Baptism },
-  { path: 'Кутии', component: Boxes },
-  { path: 'Бебешки', component: Babies },
+  {
+    path: 'category/:category',
+    loadComponent: () =>
+      import(
+        './features/category/custom-category/custom-category.component'
+      ).then((c) => c.CustomCategory),
+  },
+
   { path: 'create', component: CreateCard },
-  { path: 'allCards', component: AllCards },
   {
     path: 'me',
     canActivate: [routeGuard],

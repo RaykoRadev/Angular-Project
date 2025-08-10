@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { Baptism } from './baptism';
+import { LoadCardView } from './load-card-view';
 
-describe('Baptism', () => {
-  let component: Baptism;
-  let fixture: ComponentFixture<Baptism>;
+describe('LoadCardView', () => {
+  let component: LoadCardView;
+  let fixture: ComponentFixture<LoadCardView>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [Baptism]
+      imports: [LoadCardView]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(Baptism);
+    fixture = TestBed.createComponent(LoadCardView);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -8,6 +8,7 @@
       <img [src]="cardInfo()?.imageUrl" alt="birthday" />
       <div class="text">
         <!-- <p><strong>Tags:</strong> рожден ден, торта, свещщички</p> -->
+        <p><strong>Категория:</strong> {{cardInfo()?.category}}</p>
         <p><strong>Описание:</strong> {{cardInfo()?.description}}</p>
         <p><strong>Likes: </strong> {{ cardInfo()?.likes?.length}}</p>
         <p><strong>Създадена на:</strong> {{cardInfo()?.createdAt | date}}</p>

@@ -7,6 +7,8 @@ import {
 } from '@angular/forms';
 import { emailValidator } from '../shared/utils/emailValidator';
 
+// ! to be implementet somewhere in the feature
+
 @Directive({
   selector: '[appEmailDirective]',
   standalone: true,

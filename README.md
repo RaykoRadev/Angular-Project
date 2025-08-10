@@ -102,7 +102,6 @@ Password: asdasd
 ### 💅 UI/UX & Design
 
 - ✅ Custom UI with Angular Material
-- ✅ Responsive design
 - ✅ Loading spinners
 - ✅ Clean UX flow
 

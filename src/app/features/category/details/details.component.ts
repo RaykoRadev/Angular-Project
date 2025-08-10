@@ -73,7 +73,7 @@ export class Details implements OnInit {
         if (this.isOwner) {
           this.cardService.delete(this.cardId).subscribe({
             next: () => {
-              this.router.navigate([this.cardInfo()?.category]);
+              this.router.navigate(['category', this.cardInfo()?.category]);
             },
             error: (err) => {
               console.error("Card couldn't be deleted!", err);

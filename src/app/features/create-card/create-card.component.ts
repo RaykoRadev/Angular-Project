@@ -127,7 +127,7 @@ export class CreateCard {
           this.createCard.reset();
           this.selectedFileName = null;
           this.imageUrl = null;
-          this.router.navigate([data.category]);
+          this.router.navigate(['category', data.category]);
         },
         error: (err) => {
           console.error('Creating card faild', err);

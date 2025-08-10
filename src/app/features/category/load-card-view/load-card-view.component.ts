@@ -1,27 +1,38 @@
+import {
+  ChangeDetectorRef,
+  Component,
+  Inject,
+  inject,
+  Input,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
+import { ActivatedRoute, RouterLink, RouterOutlet } from '@angular/router';
+import { CardService } from '../../../core/services/card-service/card.service';
+import { CardResp } from '../../../shared/utils/interfaces';
 import { CommonModule } from '@angular/common';
-import { ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
 import {
   MatPaginator,
   MatPaginatorIntl,
   MatPaginatorModule,
 } from '@angular/material/paginator';
-import { ActivatedRoute, RouterLink, RouterOutlet } from '@angular/router';
 import { paginatorService } from '../../../core/services/paginator-service/paginator.service';
-import { CardResp } from '../../../shared/utils/interfaces';
-import { CardService } from '../../../core/services/card-service/card.service';
+import { routes } from '../../../app.routes';
 
 @Component({
-  selector: 'app-wedding',
+  selector: 'app-load-card-view',
   imports: [RouterOutlet, RouterLink, CommonModule, MatPaginatorModule],
-  templateUrl: './wedding.html',
-  styleUrl: './wedding.css',
+  templateUrl: './load-card-view.html',
+  styleUrl: './load-card-view.css',
   providers: [{ provide: MatPaginatorIntl, useFactory: paginatorService }],
 })
-export class Wedding implements OnInit {
+export class LoadCardView implements OnInit {
   cards: CardResp[] = [];
   length = 0;
   pageSize = 5;
-  pageIndex = 1;
+  pageIndex = 0;
+
+  @Input() category!: string;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
@@ -54,11 +65,10 @@ export class Wedding implements OnInit {
   }
 
   private loadData() {
-    const category = this.activeRoute.routeConfig?.path;
-    // console.log('category from the link: ', category);
+    console.log('category from the parent: ', this.category);
 
     this.cardService
-      .getByCategory(category!, this.pageIndex + 1, this.pageSize)
+      .getByCategory(this.category!, this.pageIndex + 1, this.pageSize)
       .subscribe({
         next: (data) => {
           // console.log('data: ', data);

@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { Birthday } from './birthday';
+import { CustomCategory } from './custom-category';
 
-describe('Birthday', () => {
-  let component: Birthday;
-  let fixture: ComponentFixture<Birthday>;
+describe('CustomCategory', () => {
+  let component: CustomCategory;
+  let fixture: ComponentFixture<CustomCategory>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [Birthday]
+      imports: [CustomCategory]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(Birthday);
+    fixture = TestBed.createComponent(CustomCategory);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
