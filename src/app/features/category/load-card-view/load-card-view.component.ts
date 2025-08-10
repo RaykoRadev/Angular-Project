@@ -44,7 +44,7 @@ export class LoadCardView implements OnInit {
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  spinnerActivate = signal<boolean>(false);
+  spinnerActivate = signal<boolean>(true);
 
   constructor(
     private activeRoute: ActivatedRoute,
@@ -88,6 +88,7 @@ export class LoadCardView implements OnInit {
           this.cards = data.data ?? [];
           // console.log('cards: ', this.cards);
           this.length = data.pagination.total ?? 100;
+
           this.spinnerActivate.set(false);
           this.cdr.detectChanges();
         },
