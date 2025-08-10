@@ -44,7 +44,7 @@ export class LoadCardView implements OnInit {
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  spinnerActivate = signal<boolean>(true);
+  spinnerActivate = signal<boolean>(false);
 
   constructor(
     private activeRoute: ActivatedRoute,
@@ -54,7 +54,6 @@ export class LoadCardView implements OnInit {
 
   ngOnInit(): void {
     this.activeRoute.url.subscribe(() => {
-      this.spinnerActivate.set(true);
       this.loadData();
     });
   }
@@ -68,7 +67,7 @@ export class LoadCardView implements OnInit {
         this.pageSize = e.pageSize;
 
         // this.cdr.detectChanges();
-        this.spinnerActivate.set(true);
+
         this.loadData();
       });
     } else {
@@ -78,6 +77,8 @@ export class LoadCardView implements OnInit {
 
   private loadData() {
     console.log('category from the parent: ', this.category);
+
+    this.spinnerActivate.set(true);
 
     this.cardService
       .getByCategory(this.category!, this.pageIndex + 1, this.pageSize)
