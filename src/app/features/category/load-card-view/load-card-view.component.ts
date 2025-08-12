@@ -64,7 +64,11 @@ export class LoadCardView implements OnInit {
       this.paginator.page.subscribe((e) => {
         // console.log('Paginator event:', e);
 
-        if (firstEvent) {
+        if (
+          firstEvent &&
+          e.pageIndex === this.pageIndex &&
+          e.pageSize === this.pageSize
+        ) {
           firstEvent = false;
           return;
         }
