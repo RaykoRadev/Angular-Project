@@ -21,6 +21,7 @@ export const attachAuthTokenInterceptor: HttpInterceptorFn = (req, next) => {
   const router = inject(Router);
   const errorService = inject(ErrorService);
 
+  // attach the token if is available for all reùest exept for the request for uploading photos to www.imgbb.com
   if (userData && !req.url.startsWith(IMAGE_UPLOAD)) {
     req = req.clone({
       setHeaders: {

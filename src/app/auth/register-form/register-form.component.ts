@@ -57,12 +57,7 @@ export class RegisterForm {
     ),
   });
 
-  constructor(
-    private fb: FormBuilder,
-    private service: UserService,
-    private router: Router,
-    private authService: AuthService
-  ) {}
+  constructor(private router: Router, private authService: AuthService) {}
 
   handlerSubmit() {
     if (this.registerForm.valid) {

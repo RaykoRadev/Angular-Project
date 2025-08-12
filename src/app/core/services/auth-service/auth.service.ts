@@ -17,6 +17,7 @@ import { ErrorService } from '../error-service/error.service';
   providedIn: 'root',
 })
 export class AuthService {
+  //save the user data, accesesable in profile page
   private currentUserSubj = new BehaviorSubject<ServRespUserData | null>(
     getUserData()
   );

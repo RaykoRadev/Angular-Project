@@ -1,7 +1,7 @@
-import { ChangeDetectorRef, Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { UserService } from '../../core/services/user-service/user.service';
 import { AuthService } from '../../core/services/auth-service/auth.service';
-import { ServRespUserData, UserProf } from '../../shared/utils/interfaces';
+import { ServRespUserData } from '../../shared/utils/interfaces';
 import { CommonModule } from '@angular/common';
 import { getUserData } from '../../shared/utils/userData';
 
@@ -17,7 +17,7 @@ export class UserProfileComponent implements OnInit {
 
   userInfo: ServRespUserData | null = null;
 
-  constructor(private cd: ChangeDetectorRef) {}
+  constructor() {}
 
   ngOnInit(): void {
     this.userInfo = getUserData();

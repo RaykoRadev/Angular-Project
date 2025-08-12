@@ -25,12 +25,7 @@ export class LoginForm {
     password: new FormControl('', [Validators.required]),
   });
 
-  constructor(
-    private fb: FormBuilder,
-    private service: UserService,
-    private router: Router,
-    private authService: AuthService
-  ) {}
+  constructor(private router: Router, private authService: AuthService) {}
 
   handlerSubmit() {
     if (this.loginForm.valid) {

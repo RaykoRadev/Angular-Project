@@ -18,7 +18,7 @@ import { CardInitForm, CardIntFull } from '../../shared/utils/interfaces';
 import { CardService } from '../../core/services/card-service/card.service';
 import { MatOption, MatSelect } from '@angular/material/select';
 import { Router } from '@angular/router';
-import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { ErrorService } from '../../core/services/error-service/error.service';
 
@@ -80,7 +80,7 @@ export class CreateCard {
       const link = this.uploadService.uploadPhotoFn(file).subscribe({
         next: (url) => {
           this.imageUrl = url;
-          console.log('url is: ', url);
+          // console.log('url is: ', url);
           this.isUploading.set(false);
         },
 
@@ -109,6 +109,7 @@ export class CreateCard {
         return;
       }
 
+      //adding img url and the author to the object needed for the request
       const allData: CardIntFull = {
         ...formData,
         imageUrl: this.imageUrl,

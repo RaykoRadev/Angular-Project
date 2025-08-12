@@ -14,6 +14,7 @@ export class CustomCategory implements OnInit {
   constructor(private cdr: ChangeDetectorRef) {}
 
   ngOnInit(): void {
+    //extract the category needed to be rendered
     this.activeRoute.paramMap.subscribe((params) => {
       this.category = params.get('category') || '';
       if (this.category === 'allCards') {

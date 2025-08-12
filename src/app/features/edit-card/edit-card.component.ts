@@ -54,8 +54,8 @@ export class EditCard implements OnInit {
   hideLink = signal<boolean>(false);
   cardForm: FormGroup;
 
-  isPhotoChanged = false;
-  isImageUrlLocked = true;
+  isPhotoChanged = false; // if there is new  photo activate logic to set the new photo
+  isImageUrlLocked = true; // locking the input showing the url of the photo
   imageUrl: string | null = null;
   selectedFileName: string | null = null;
   categoriesArr: string[] = [
@@ -162,7 +162,7 @@ export class EditCard implements OnInit {
       if (this.isPhotoChanged) {
         if (!this.imageUrl) {
           console.warn(
-            'Image not uploaded yet. Please wait or upload an image.'
+            'Картинката не е качена още. Моля изчакайте картинката да се качи.'
           );
           return;
         }

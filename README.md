@@ -91,9 +91,9 @@ Password: asdasd
 
   - TypeScript strict types
   - Interfaces & Types
-  - Observables & RxJS (`tap`, `catchError`, `throwError`)
+  - Observables & RxJS (`tap`, `catchError`, `throwError`, `BehaviorSubject`, `switchMap`, `map`)
   - Lifecycle hooks (`ngOnInit`, `ngOnDestroy`, `ngAfterViewInit`)
-  - Custom Pipes
+  - Pipes (`tap`, `finalize`, `debounceTime`, `switchMap`)
   - Route Guards
 
 ### 🧪 Form Handling & Validation

@@ -7,7 +7,7 @@ import {
   CardIntFull,
   CardResp,
 } from '../../../shared/utils/interfaces';
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',

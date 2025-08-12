@@ -86,9 +86,9 @@ export class LoadCardView implements OnInit {
   }
 
   private loadData() {
-    console.log('category from the parent: ', this.category);
+    // console.log('category from the parent: ', this.category);
 
-    this.spinnerActivate.set(true);
+    this.spinnerActivate.set(true); // spinner untill photos are loaded and rendered, especially for the deployed app
 
     this.cardService
       .getByCategory(this.category!, this.pageIndex + 1, this.pageSize)
@@ -100,6 +100,7 @@ export class LoadCardView implements OnInit {
           // console.log('cards: ', this.cards);
           this.length = data.pagination.total ?? 100;
 
+          // solution for the diffrent rendering from the local and deployed server
           if (data.pagination.page !== null) {
             const backendIndex = (data.pagination.page ?? 1) - 1;
             this.pageIndex = backendIndex;

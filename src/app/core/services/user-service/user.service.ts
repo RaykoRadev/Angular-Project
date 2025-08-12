@@ -39,7 +39,7 @@ export class UserService {
     return this.http.get<ServRespUserData>(this.url + '/logout');
   }
 
-  // withot that headers is retunong status 304 and doesn trigger change
+  // without that headers is returning status 304 and doesn trigger change
   profile() {
     return this.http.get<UserProf>(this.url + '/me', {
       headers: {
