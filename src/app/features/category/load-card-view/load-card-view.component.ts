@@ -57,8 +57,17 @@ export class LoadCardView implements OnInit {
 
   ngAfterViewInit() {
     if (this.paginator) {
+      this.paginator.firstPage();
+
+      let firstEvent = true;
+
       this.paginator.page.subscribe((e) => {
         // console.log('Paginator event:', e);
+
+        if (firstEvent) {
+          firstEvent = false;
+          return;
+        }
 
         this.pageIndex = e.pageIndex;
         this.pageSize = e.pageSize;
@@ -86,6 +95,15 @@ export class LoadCardView implements OnInit {
 
           // console.log('cards: ', this.cards);
           this.length = data.pagination.total ?? 100;
+
+          if (data.pagination.page !== null) {
+            const backendIndex = (data.pagination.page ?? 1) - 1;
+            this.pageIndex = backendIndex;
+
+            if (this.paginator.pageIndex !== backendIndex) {
+              this.paginator.pageIndex = backendIndex;
+            }
+          }
 
           this.spinnerActivate.set(false);
           this.cdr.detectChanges();
