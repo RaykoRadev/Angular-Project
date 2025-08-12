@@ -1,6 +1,5 @@
 .container {
   display: flex;
-  /* flex-direction: column; */
   justify-content: center;
   align-items: center;
   padding: 5em;
@@ -10,7 +9,7 @@
   margin: 0 auto;
   gap: 3em;
 
-  img{
+  img {
     width: 380px;
     height: auto;
   }
@@ -27,5 +26,3 @@
     }
   }
 }
-
-

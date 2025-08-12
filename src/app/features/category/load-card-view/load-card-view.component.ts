@@ -1,8 +1,6 @@
 import {
   ChangeDetectorRef,
   Component,
-  Inject,
-  inject,
   Input,
   OnInit,
   signal,
@@ -18,7 +16,6 @@ import {
   MatPaginatorModule,
 } from '@angular/material/paginator';
 import { paginatorService } from '../../../core/services/paginator-service/paginator.service';
-import { routes } from '../../../app.routes';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @Component({
@@ -45,8 +42,6 @@ export class LoadCardView implements OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   spinnerActivate = signal<boolean>(true);
-
-  spinenerColor = 'orange';
 
   constructor(
     private activeRoute: ActivatedRoute,
@@ -88,6 +83,7 @@ export class LoadCardView implements OnInit {
         next: (data) => {
           // console.log('data: ', data);
           this.cards = data.data ?? [];
+
           // console.log('cards: ', this.cards);
           this.length = data.pagination.total ?? 100;
 

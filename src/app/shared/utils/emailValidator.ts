@@ -6,7 +6,6 @@ export function emailValidator(
 ): ValidatorFn {
   const domainStr = domains.join('|');
   const emailBaseStr = emailBase.join('|');
-  // const providersStr =
   const regExp = new RegExp(`[A-Za-z0-9]{6,}(${emailBaseStr})\.(${domainStr})`);
   return (control) => {
     const isInvalid = control.value === '' || regExp.test(control.value);

@@ -24,6 +24,9 @@ Use this test account:
 ```
 Username: Rayko
 Password: asdasd
+
+Username: Test123
+Password: asdasd
 ```
 
 > _(Other test accounts available in comments below)_

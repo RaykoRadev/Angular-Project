@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component } from '@angular/core';
 import * as L from 'leaflet';
 
 @Component({
@@ -20,9 +20,7 @@ export class ContactUs implements AfterViewInit {
     iconUrl: '/marker-icon-2x.png',
     iconRetinaUrl: '/marker-icon-2x.png',
     shadowUrl: '/marker-shadow.png',
-    // iconUrl: 'assets/leaflet/marker-icon.png',
-    // iconRetinaUrl: 'assets/leaflet/marker-icon-2x.png',
-    // shadowUrl: 'assets/leaflet/marker-shadow.png',
+
     iconSize: [25, 41],
     iconAnchor: [12, 41],
     popupAnchor: [1, -34],

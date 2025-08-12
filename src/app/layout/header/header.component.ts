@@ -14,7 +14,6 @@ import { UserService } from '../../core/services/user-service/user.service';
 })
 export class HeaderComponent implements OnInit {
   user: ServRespUserData | null = null;
-  // logName = getUserData();
   name = 'guest';
 
   constructor(private router: Router, private authService: AuthService) {}

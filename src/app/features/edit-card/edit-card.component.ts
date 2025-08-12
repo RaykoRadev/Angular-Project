@@ -87,12 +87,12 @@ export class EditCard implements OnInit {
 
     this.activeRouting.params.subscribe({
       next: (url) => {
-        console.log('url: ', url['card._id']);
+        // console.log('url: ', url['card._id']);
         this.cardId = url['card._id'];
 
         this.cardService.getOneById(this.cardId).subscribe({
           next: (card) => {
-            console.log('card info:', card);
+            // console.log('card info:', card);
             this.cardInfo = card;
             // console.log(this.cardInfo);
 
@@ -115,34 +115,10 @@ export class EditCard implements OnInit {
     });
   }
 
-  ngOnInit(): void {
-    // this.activeRouting.params.subscribe({
-    //   next: (url) => {
-    //     console.log('url: ', url['card._id']);
-    //     this.cardId = url['card._id'];
-    //     this.cardService.getOneById(this.cardId).subscribe({
-    //       next: (card) => {
-    //         console.log('card info:', card);
-    //         this.cardInfo = card;
-    //         // console.log(this.cardInfo);
-    //       },
-    //       error: (err) => {
-    //         console.error('Card info loading faild', err);
-    //       },
-    //     });
-    //   },
-    // });
-    // this.cardForm.patchValue({
-    //   title: this.cardInfo?.title,
-    //   description: this.cardInfo?.description,
-    //   imageUrl: this.cardInfo?.imageUrl,
-    //   category: this.cardInfo?.category,
-    // });
-  }
+  ngOnInit(): void {}
 
   uploadPhoto(e: Event) {
-    console.log(e.target);
-    // let imgString = '';
+    // console.log(e.target);
     const input = e.target as HTMLInputElement;
     if (input.files && input.files.length > 0) {
       const file = input.files[0];
@@ -157,7 +133,7 @@ export class EditCard implements OnInit {
       const link = this.uploadService.uploadPhotoFn(file).subscribe({
         next: (url) => {
           this.imageUrl = url;
-          console.log('url is: ', url);
+          // console.log('url is: ', url);
           this.isUploading.set(false);
           this.isPhotoChanged = true;
         },
@@ -188,7 +164,6 @@ export class EditCard implements OnInit {
           console.warn(
             'Image not uploaded yet. Please wait or upload an image.'
           );
-          //* show a toast/snackbar to the user or desabling the submit button until the responce is done
           return;
         }
         this.allData = {
@@ -199,11 +174,11 @@ export class EditCard implements OnInit {
       } else {
         this.allData = formData;
       }
-      console.log('all Data:', this.allData);
+      // console.log('all Data:', this.allData);
 
       this.cardService.edit(this.cardInfo!._id, this.allData).subscribe({
         next: (data) => {
-          console.log('Responce:', data);
+          // console.log('Responce:', data);
 
           this.cardForm.reset();
           this.selectedFileName = null;

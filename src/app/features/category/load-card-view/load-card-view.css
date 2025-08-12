@@ -63,23 +63,3 @@ section {
   background: var(--drop-menu-bg-select) !important;
   /* color: #003344 !important; */
 }
-
-/* spinner css is in the globale style.css */
-
-/* .spinner {
-  color: orange !;
-} */
-/* .spinner.mat-progress-spinner circle,
-.spinner.mat-spinner circle {
-  stroke: orange !important;
-} */
-/* mat-spinner {
-  width: 50px !important;
-  height: 50px !important;
-}
-mat-spinner {
-  color: red;
-} */
-/* :host ::ng-deep .mat-progress-spinner circle {
-  stroke: red !important;
-} */

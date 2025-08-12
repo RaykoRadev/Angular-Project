@@ -1,11 +1,11 @@
-import { Component, inject, OnInit, signal } from '@angular/core';
+import { Component, OnInit, signal } from '@angular/core';
 import { Coments } from '../coments/coments.component';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { CardService } from '../../core/services/card-service/card.service';
 import { CardResp } from '../../shared/utils/interfaces';
 import { MatDialog } from '@angular/material/dialog';
 import { DeleteCard } from '../delete-card/delete-card.component';
-import { getUserData, isLogged } from '../../shared/utils/userData';
+import { getUserData } from '../../shared/utils/userData';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -31,9 +31,7 @@ export class Details implements OnInit {
   ngOnInit(): void {
     this.activeRouting.params.subscribe({
       next: (url) => {
-        console.log('url: ', url['card._id']);
-        // console.log(this.activeRouting.snapshot.url[0].path);
-        // console.log(this.activeRouting.snapshot.url[1].path);
+        // console.log('url: ', url['card._id']);
 
         this.cardId = url['card._id'];
         this.loadData(this.cardId);
@@ -53,7 +51,7 @@ export class Details implements OnInit {
           this.isAlreagyLiked.set(true);
         }
 
-        console.log(this.isOwner);
+        // console.log(this.isOwner);
       },
       error: (err) => {
         console.error('Card info loading faild', err);
@@ -62,7 +60,7 @@ export class Details implements OnInit {
   }
 
   deleteFunk() {
-    console.log('it is working delete button');
+    // console.log('it is working delete button');
 
     const dialogRef = this.deleteDialog.open(DeleteCard);
 
@@ -94,7 +92,7 @@ export class Details implements OnInit {
     if (this.isAlreagyLiked()) {
       this.cardService.unsendlike(this.cardId).subscribe({
         next: (data) => {
-          console.log('from unlike section:', data);
+          // console.log('from unlike section:', data);
           this.isAlreagyLiked.set(false);
           this.loadData(this.cardId);
         },
@@ -105,7 +103,7 @@ export class Details implements OnInit {
     } else {
       this.cardService.sendlike(this.cardId).subscribe({
         next: (data) => {
-          console.log('from like section:', data);
+          // console.log('from like section:', data);
           this.isAlreagyLiked.set(true);
           this.loadData(this.cardId);
         },

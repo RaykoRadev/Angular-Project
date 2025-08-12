@@ -75,11 +75,7 @@ export class RegisterForm {
         repass: passGroup?.repass,
       } as UserReg;
 
-      // this.registerForm.value as UserReg;
       console.log('form data:', formData);
-
-      // this.service.register(formData).subscribe();
-      // this.registerForm.reset();
 
       this.authService.register(formData).subscribe({
         next: () => {
@@ -93,6 +89,5 @@ export class RegisterForm {
     } else {
       console.warn('Form is invalid');
     }
-    // this.router.navigate(['/home']);
   }
 }

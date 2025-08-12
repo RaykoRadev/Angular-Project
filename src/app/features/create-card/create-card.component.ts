@@ -1,4 +1,4 @@
-import { Component, signal, Signal } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import {
   FormControl,
   FormGroup,
@@ -67,7 +67,6 @@ export class CreateCard {
 
   uploadPhoto(e: Event) {
     console.log(e.target);
-    // let imgString = '';
     const input = e.target as HTMLInputElement;
     if (input.files && input.files.length > 0) {
       const file = input.files[0];
@@ -96,7 +95,6 @@ export class CreateCard {
   handlerSubmit() {
     if (!this.imageUrl) {
       console.warn('Image not uploaded yet. Please wait or upload an image.');
-      //* show a toast/snackbar to the user or desabling the submit button until the responce is done
       return;
     }
 
@@ -115,14 +113,13 @@ export class CreateCard {
         ...formData,
         imageUrl: this.imageUrl,
         author: userData._id,
-        // authorID: authorID!,
       };
 
-      console.log('all Data:', allData);
+      // console.log('all Data:', allData);
 
       this.cardService.create(allData).subscribe({
         next: (data) => {
-          console.log('Responce:', data, typeof data);
+          // console.log('Responce:', data, typeof data);
 
           this.createCard.reset();
           this.selectedFileName = null;

@@ -6,8 +6,6 @@ import { CreateCard } from './features/create-card/create-card.component';
 import { ErrorPage } from './layout/error-page/error-page.component';
 import { CategoryComponent } from './features/category.component/category.component';
 import { routeGuard } from './core/guards/route.guard';
-import { EditCard } from './features/edit-card/edit-card.component';
-import { Details } from './features/details/details.component';
 import { ContactUs } from './layout/contact-us/contact-us.component';
 
 export const routes: Routes = [
@@ -49,6 +47,5 @@ export const routes: Routes = [
   },
 
   //! always in the bottom
-  // { path: '**', redirectTo: '/home' },
   { path: '**', component: ErrorPage },
 ];

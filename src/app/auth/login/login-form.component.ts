@@ -18,7 +18,6 @@ import { UserService } from '../../core/services/user-service/user.service';
   imports: [ReactiveFormsModule, MatFormField, MatError, MatInput, MatLabel],
   templateUrl: './login-form.html',
   styleUrl: './login-form.css',
-  // providers: [UserService],
 })
 export class LoginForm {
   loginForm = new FormGroup({
@@ -37,9 +36,6 @@ export class LoginForm {
     if (this.loginForm.valid) {
       const formData: UserLog = this.loginForm.value as UserLog;
 
-      // this.service.login(formData).subscribe();
-      // this.loginForm.reset();
-
       this.authService.login(formData).subscribe({
         next: () => {
           this.loginForm.reset();
@@ -52,7 +48,5 @@ export class LoginForm {
     } else {
       console.warn('Form is invalid');
     }
-
-    // this.router.navigate(['/home']);
   }
 }

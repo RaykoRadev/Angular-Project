@@ -1,5 +1,7 @@
-<!-- <p>user-profile works!</p> -->
-<p *ngIf="!userInfo">Waiting for data...</p>
+@if(!userInfo){
+<p>Waiting for data...</p>
+}
+
 <div class="container" *ngIf="userInfo">
   <img src="avatar.jpg" alt="avatar" />
   <section>

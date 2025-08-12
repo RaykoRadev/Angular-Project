@@ -1,4 +1,4 @@
-.together{
+.together {
   display: flex;
   gap: 4em;
 }
@@ -37,12 +37,9 @@ section {
   }
 
   img {
-    /* border-radius: 1em; */
     overflow: hidden;
     width: 630px;
     height: 903px;
-    /* border-top-left-radius: 1em;
-    border-top-right-radius: 1em; */
   }
 
   .text {
@@ -55,41 +52,34 @@ section {
     border-bottom-left-radius: 1em;
     border-bottom-right-radius: 1em;
 
-
     p {
       font-size: 0.9em;
       padding: 0.2em;
       font-weight: 500;
     }
   }
-    .buttons {
-      display: flex;
-      /* flex-direction: column; */
-      justify-content: center;
-      font-size: 1.2em;
-      margin-bottom: 1em;
-      gap: 4em;
+  .buttons {
+    display: flex;
+    justify-content: center;
+    font-size: 1.2em;
+    margin-bottom: 1em;
+    gap: 4em;
+  }
 
-    }
+  button {
+    background-color: var(--button-color);
+    color: white;
+    border-radius: 0.4em;
+    padding: 0.2em 0.6em;
+    margin-top: 1.4em;
+  }
 
-    button {
-      background-color: var(--button-color);
-      color: white;
-      /* border: 1px solid var(--button-color); */
-      border-radius: 0.4em;
-      padding: 0.2em 0.6em;
-      margin-top: 1.4em;
-      /* margin-left: 0.4em; */
-    }
+  button:disabled {
+    opacity: 0.7;
+  }
 
-    button:disabled {
-      opacity: 0.7;
-    }
-
-
-
-    button:hover {
-      background-color: var(--button-color-hoover);
-      color: black;
-    }
+  button:hover {
+    background-color: var(--button-color-hoover);
+    color: black;
+  }
 }

@@ -1,7 +1,5 @@
-import { Injectable } from '@angular/core';
 import { USER_TOKEN } from '../cosntants/constants';
 import { ServRespUserData } from './interfaces';
-import { BehaviorSubject } from 'rxjs';
 
 export function setUserData(res: ServRespUserData): void {
   localStorage.setItem(USER_TOKEN, JSON.stringify(res));

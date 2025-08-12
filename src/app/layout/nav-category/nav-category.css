@@ -1,6 +1,5 @@
 aside {
   border-radius: 1em;
-  /* background-color: #f4d44d; */
   background-color: #f4e901;
   margin-top: 1.1em;
   width: 250px;
@@ -62,11 +61,6 @@ aside .accordion {
   color: black;
 }
 
-/* .accordion .content > p:hover {
-  background-color: #f4d44d;
-  color: black !important;
-} */
-
 /* Content area */
 .accordion .content {
   max-height: 0;
@@ -111,8 +105,6 @@ aside .accordion {
 }
 
 .accordion .content a:hover {
-  /* display: inline-block; */
-  /* min-width: 100%; */
   color: black;
 }
 

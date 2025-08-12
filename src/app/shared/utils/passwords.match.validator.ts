@@ -9,7 +9,7 @@ export function matchPasswordsValidator(
     const repassFormControl = control.get(repassControlName);
 
     const isPasswodsMatch = passFormControl?.value === repassFormControl?.value;
-    console.log(isPasswodsMatch);
+    // console.log(isPasswodsMatch);
 
     return isPasswodsMatch ? null : { passwordMismatch: true };
   };

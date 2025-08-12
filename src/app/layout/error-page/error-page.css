@@ -17,7 +17,6 @@ section div:nth-child(2) {
 
 .buttons {
   display: flex;
-  /* flex-direction: column; */
   justify-content: center;
   font-size: 1.6em;
   margin-bottom: 1em;
@@ -27,15 +26,12 @@ section div:nth-child(2) {
 button {
   background-color: var(--button-color);
   color: white;
-  /* border: 1px solid var(--button-color); */
   border-radius: 0.4em;
   padding: 0.2em 0.6em;
   margin-top: 1.4em;
-  /* margin-left: 0.4em; */
 }
 
 button:hover {
   background-color: var(--button-color-hoover);
   color: black;
 }
-

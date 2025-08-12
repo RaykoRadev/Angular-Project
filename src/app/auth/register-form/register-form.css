@@ -16,20 +16,16 @@ button {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  /* padding: 0.5em; */
   font-size: 1.2em;
   margin-bottom: 1em;
-
 }
 
 button {
   background-color: var(--button-color);
   color: white;
-  /* border: 1px solid var(--button-color); */
   border-radius: 0.4em;
   padding: 0.2em 0.6em;
   margin-top: 1.4em;
-  /* margin-left: 0.4em; */
 }
 
 button:hover {
@@ -41,9 +37,6 @@ mat-error {
   color: red;
   font-size: 0.6em;
 }
-/* .mat-mdc-form-field-infix{
-  width: 400px;
-} */
 
 mat-form-field {
   width: 400px;

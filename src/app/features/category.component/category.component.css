@@ -18,7 +18,6 @@ section {
   }
 
   img {
-    /* border-radius: 1em; */
     overflow: hidden;
     width: 450px;
     height: 645px;
@@ -32,7 +31,6 @@ section {
     border-top: none;
     border-bottom-left-radius: 1em;
     border-bottom-right-radius: 1em;
-
 
     p {
       font-size: 0.9em;

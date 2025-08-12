@@ -3,7 +3,6 @@ import { BehaviorSubject, catchError, Observable, tap } from 'rxjs';
 import {
   ServRespUserData,
   UserLog,
-  UserProf,
   UserReg,
 } from '../../../shared/utils/interfaces';
 import {
@@ -12,7 +11,6 @@ import {
   setUserData,
 } from '../../../shared/utils/userData';
 import { UserService } from '../user-service/user.service';
-import { UserProfileComponent } from '../../../auth/user-profile/user-profile.component';
 import { ErrorService } from '../error-service/error.service';
 
 @Injectable({

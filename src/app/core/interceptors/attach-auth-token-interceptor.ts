@@ -41,7 +41,7 @@ export const attachAuthTokenInterceptor: HttpInterceptorFn = (req, next) => {
         event instanceof HttpResponse &&
         req.url.startsWith(IMAGE_UPLOAD)
       ) {
-        console.log('upload continuing');
+        // console.log('upload continuing');
       }
     }),
 

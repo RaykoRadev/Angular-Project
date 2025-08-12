@@ -17,17 +17,14 @@ export class CardService {
 
   create(data: CardIntFull): Observable<CardResp> {
     const url = BASE_CARD_URL + '/create';
-    // console.log(data);
-    // console.log('url:', url);
-    // console.log('Data payload:', JSON.stringify(data, null, 2));
+
     return this.http.post<CardResp>(url, data);
   }
 
   getAll(page: number = 1, limit: number = 5): Observable<CardGetAllR> {
     const url = `${BASE_CARD_URL}?sortBy=createdAt&limit=${limit}&page=${page}&order=asc`;
 
-    console.log(url);
-
+    // console.log(url);
     return this.http.get<CardGetAllR>(url);
   }
 
@@ -37,14 +34,14 @@ export class CardService {
     limit: number = 5
   ): Observable<CardGetAllR> {
     const url = `${BASE_CARD_URL}?category=${category}&sortBy=createdAt&limit=${limit}&page=${page}&order=asc`;
-    console.log(url);
+    // console.log(url);
 
     return this.http.get<CardGetAllR>(url);
   }
 
   getOneById(cardId: string): Observable<CardResp> {
     const url = `${BASE_CARD_URL}/${cardId}`;
-    console.log(url);
+    // console.log(url);
 
     return this.http.get<CardResp>(url);
   }
@@ -56,20 +53,20 @@ export class CardService {
 
   delete(cardId: string) {
     const url = `${BASE_CARD_URL}/delete/${cardId}`;
-    console.log(url);
+    // console.log(url);
 
     return this.http.delete(url);
   }
 
   sendlike(cardId: string): Observable<CardResp> {
     const url = `${BASE_CARD_URL}/like/${cardId}`;
-    console.log(url);
+    // console.log(url);
     return this.http.get<CardResp>(url);
   }
 
   unsendlike(cardId: string): Observable<CardResp> {
     const url = `${BASE_CARD_URL}/unlike/${cardId}`;
-    console.log(url);
+    // console.log(url);
     return this.http.get<CardResp>(url);
   }
 }
