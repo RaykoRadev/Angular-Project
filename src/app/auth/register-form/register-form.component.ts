@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import {
-  FormBuilder,
   FormGroup,
   ReactiveFormsModule,
   FormControl,
@@ -14,7 +13,6 @@ import { MatError, MatFormField, MatLabel } from '@angular/material/form-field';
 import { MatInput } from '@angular/material/input';
 import { matchPasswordsValidator } from '../../shared/utils/passwords.match.validator';
 import { AuthService } from '../../core/services/auth-service/auth.service';
-import { UserService } from '../../core/services/user-service/user.service';
 
 @Component({
   selector: 'app-register-form',

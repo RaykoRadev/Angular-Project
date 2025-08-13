@@ -143,7 +143,7 @@ Once both servers are running, go to:
 
 ---
 
-## 🧪 Test Users
+<!-- ## 🧪 Test Users -->
 
 ```plaintext
 # Main test user:

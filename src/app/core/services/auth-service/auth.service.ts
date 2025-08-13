@@ -40,7 +40,7 @@ export class AuthService {
       }),
       catchError((err) => {
         this.errorService.setError(
-          err.error.message || 'Неуспешно вписване. Моля пробвайте отново!'
+          err.error.message || `Неуспешно вписване! \n ${err.error.error}`
         );
         throw err;
       })
@@ -56,8 +56,11 @@ export class AuthService {
       }),
       catchError((err) => {
         this.errorService.setError(
-          err.error.message || 'Неуспешно регистриране. Моля пробвайте отново!'
+          err.error.message || `Неуспешна регистрация! \n ${err.error.error}`
         );
+
+        console.log('log the error: ', err);
+
         throw err;
       })
     );
