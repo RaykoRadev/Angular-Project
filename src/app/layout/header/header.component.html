@@ -2,8 +2,8 @@
   <div class="header-top">
     <section class="title">
       <h1>Handmade by Fresia</h1>
-      <p>Created by my Awesomness</p>
-      <p>Cards produced by the best card-maker -> my cousin</p>
+      <!-- <p>Created by my Awesomness</p>
+      <p>Cards produced by the best card-maker -> my cousin</p> -->
     </section>
     <section class="user">
       <ng-container *ngIf="user; else loggedOut">
@@ -15,7 +15,7 @@
             <a routerLink="/me">Профил</a>
           </li>
           <li>
-            <a (click)="onLogout($event)" href="/logout">Отписване :(</a>
+            <a (click)="onLogout($event)" href="/logout">Отписване</a>
           </li>
         </ul>
       </ng-container>

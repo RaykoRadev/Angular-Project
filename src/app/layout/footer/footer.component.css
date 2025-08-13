@@ -4,9 +4,14 @@ footer {
   flex-direction: column;
   text-align: center;
   background-color: rgb(189, 189, 189);
+  padding: 1em;
 }
 
 footer .creators {
   display: flex;
   justify-content: space-around;
+}
+
+li {
+  list-style: none;
 }
